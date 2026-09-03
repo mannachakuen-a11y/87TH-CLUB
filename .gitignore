@@ -1,0 +1,22 @@
+# --- secrets & local data: NEVER commit these ---
+server/.env
+*.env
+!.env.example
+data/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# --- node / build ---
+node_modules/
+dist/
+*.tsbuildinfo
+
+# --- editor / os ---
+.DS_Store
+.vscode/
+.idea/
+
+# --- scratch ---
+.shots/
+*.log

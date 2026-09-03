@@ -1,0 +1,39 @@
+# Render Blueprint — deploys Mannas Dungeons as a single web service.
+# Connect this repo to Render (Dashboard → New → Blueprint) and it will:
+#   1. install deps, seed the DB, build the frontend
+#   2. run `node server/index.js` (serves API + app + uploads on one port)
+#   3. inject the env vars below (set the secret ones in Render's dashboard)
+#
+# The app auto-reads server/.env, but Render injects env vars directly —
+# set the same values in Render (Env Groups) rather than committing .env.
+
+services:
+  - type: web
+    name: mannas-dungeons
+    runtime: node
+    plan: free            # free tier works for a single brand/team
+    buildCommand: npm install && mkdir -p data && npm run seed && npm run build
+    startCommand: node server/index.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: DRIVER
+        value: sqlite          # change to "supabase" for hosted Postgres
+      # --- REQUIRED: set a long random value in Render (Generate) ---
+      - key: JWT_SECRET
+        generateValue: true
+      # --- OPTIONAL: turn on real AI. Add your keys in Render's dashboard ---
+      - key: OPENAI_API_KEY
+        sync: false            # set in dashboard if you want AI
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      # --- OPTIONAL: hosted Postgres (recommended so data survives redeploys) ---
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false

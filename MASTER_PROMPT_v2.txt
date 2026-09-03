@@ -1,0 +1,305 @@
+=====================================================================
+THE 87TH CLUB — BRAND ADVANCEMENT OS
+MASTER BUILD PROMPT · v2 (paste this into Arena AI to build/rebuild it)
+=====================================================================
+
+Build a real, functional, private-first, AI-native creative operating system
+called THE 87TH CLUB — BRAND ADVANCEMENT OS. A clothing/fashion brand is taken
+through eight Brand Advancement Outcomes, and the brand must VISIBLY and
+STATICALLY get better as each outcome is completed. Every feature in the OS is
+a TOOL that exists only to finish one of the eight outcomes. Nothing else.
+
+THE ACCEPTANCE EXPRESSION (mean this literally, do not decorate it):
+"LOGIN → NEW PROJECT → ADD BRAND MATERIALS → AI ANALYSIS → OUTCOME 01 →
+OUTCOME 02 → … → OUTCOME 08 → TEST → FINAL BRAND ADVANCEMENT PACKAGE."
+The user should never have to think about what they're doing. It should be
+SEQUENTIAL, hand-holding, and obvious. From the moment they log in they add
+what they have, the OS tells them what it found, what it would change, what it
+created, what to approve, and what's next — until all eight outcomes are done
+and the brand is measurably better.
+
+=====================================================================
+1 · THE USER JOURNEY (LOADER / PROGRESS)
+=====================================================================
+- Show a SINGLE, always-visible "BRAND ADVANCEMENT" journey at the top of the
+  app: 01 → 02 → 03 → … → 08, with the current outcome highlighted and a live
+  overall percentage filling as work is completed.
+- It starts near 0% (e.g., 15% after login) and visibly advances as each
+  outcome is finished. It must be REAL (driven by actual database state), not a
+  fake animation. Progress persists and is restored on reopen.
+- Every screen shows: current outcome, current step, % complete, completed /
+  pending / skipped items, AI findings, recommendations, created outputs,
+  tests, and the single next action.
+- The user can jump between outcomes while dependencies and status are kept.
+
+=====================================================================
+2 · THE EIGHT OUTCOMES (the only product)
+=====================================================================
+01 CLEAR BRAND IDENTITY        — purpose, audience, positioning, differentiation,
+                                personality, promise, values, messaging, brand core.
+02 DISTINCTIVE BRAND WORLD     — culture, people, environments, photography, film,
+                                lighting, styling, texture, typography, colour,
+                                graphics, motion, sound, recurring visual signatures.
+03 STRONGER CUSTOMER EXPERIENCE— discovery→interest→consideration→trust→purchase→
+                                delivery→post-purchase→retention. Website/UX friction.
+04 CONVERSION-READY SALES      — offer architecture, landing, product layout, checkout
+                                concept, objection handling, CTA hierarchy, trust.
+05 REPEATABLE CONTENT ENGINE   — pillars, formats, hooks, visual patterns, production,
+                                distribution, measurement.
+06 CAMPAIGN SYSTEM             — objective, audience, insight, big idea, campaign world,
+                                hero creative, creative direction, rollout, asset list,
+                                launch sequence, measurement plan.
+07 CUSTOMER ACQUISITION LOOP   — attention→interest→consideration→trust→purchase→
+                                experience→UGC→review→referral→new attention.
+08 MEASURABLE GROWTH SYSTEM    — revenue, orders, AOV, conversion, traffic, reach,
+                                engagement, CAC, repeat, LTV, experiments, dashboards.
+
+Every outcome carries steps the user can approve / edit / regenerate / reject /
+skip / pause / reopen / override. The framework is configurable data.
+
+=====================================================================
+3 · MANDATORY VOICE (always communicate these six things)
+=====================================================================
+HERE'S WHAT I FOUND.
+HERE'S WHY IT MATTERS.
+HERE'S WHAT I WOULD CHANGE.
+HERE'S WHAT I CREATED.
+HERE'S THE TEST.
+DO YOU APPROVE?  →  NEXT OUTCOME.
+
+=====================================================================
+4 · INTEGRATIONS (the specialist engines the OS orchestrates)
+=====================================================================
+The OS is the orchestration layer. Specialist tools remain specialist engines.
+Integrations Hub for: OpenAI, Anthropic Claude, Google Gemini, Mistral, Arena AI,
+Shopify, Stripe, Gmail (Google OAuth), Google Drive, Google Analytics, Figma,
+Canva, Adobe Creative Cloud, Higgsfield, Jitter, DaVinci Resolve, Lovable,
+Vercel, Netlify, and future tools. Use official APIs / OAuth / SDKs / webhooks /
+MCP / local bridges. Never fake a connection. Each shows connection state,
+permissions, capabilities, last sync, errors, test connection, disconnect.
+
+GMAIL — REQUIRED AT LOGIN:
+- Google OAuth, and Gmail authentication happens as part of logging in.
+- A CLIENT COMMUNICATION section with reusable, editable draft messages
+  (e.g. "Brand Advancement Complete") that the user must preview, edit and
+  EXPLICITLY approve before sending. Support draft / save / edit / preview /
+  duplicate / confirm-before-send.
+- If Gmail is not yet connected, the OS must NOT fake sending: it copies the
+  message and says so clearly.
+
+The Integrations must participate directly in the production workflow:
+- Higgsfield → video generation
+- DaVinci Resolve → professional editing + colour
+- Canva → social / presentation assets
+- Adobe Creative Cloud → creative processing
+- Figma → design / web handoff
+The OS triggers, tracks and organizes these; it doesn't pretend to be them.
+
+=====================================================================
+5 · CINEMA STUDIO (THE PRODUCTION HOUSE — centrepiece)
+=====================================================================
+Make Cinema Studio behave like a world-class marketing studio (inspired by the
+depth and breadth of Higgsfield Marketing Studio) WITHOUT copying proprietary
+UI, code, branding or assets. It is where the user redoes all the improperly
+done designs and weak brand identity, and where brand strategy becomes real
+visual communication.
+
+STRUCTURE — divided into ASSET TYPES, exactly like a marketing studio:
+  SOCIAL — Stories, Highlights, Reels, TikTok, Posts, Carousels, Ads, UGC,
+           Thumbnails, Profile/Cover, Covers.
+  CONTENT — Short films, Teaser, Trailer, Product film, Campaign film, BTS,
+           Lookbook, Editorial, Interview, Launch video.
+  BRAND — Identity, Logo system, Typography, Colour, Graphics, Packaging,
+           Brand book, Art direction, Photography direction, Motion identity,
+           Sound direction. (Must surface a BRAND IDENTITY section and a
+           DISTINCTIVE WORLD test.)
+  WEB — Homepage, Landing, Collection, Product page, Cart, Checkout,
+        Campaign page, Popups, Email concepts.
+  CAMPAIGN — Campaign boards, Hero creative, Key visual, Social rollout,
+             Ad variants, Creator briefs, UGC briefs, Email/SMS, Launch assets.
+  DESIGN — Posters, Flyers, Lookbooks, Presentations, Moodboards, Pitch decks,
+           Product cards, Promotional graphics.
+
+CREATE FROM: Scratch / Template / Brand analysis / Reference. But more than
+that — Cinema Studio must be OUTCOME-AWARE. It knows the current framework
+outcome and offers the right production for it:
+  Outcome 01 → identity directions, brand core, logo lockups.
+  Outcome 02 → brand world boards, moodboards, photography/styling/environment
+               direction, film treatments, a distinctive-world test.
+  Outcome 03 → customer-experience + UI concepts.
+  Outcome 04 → landing pages, product layouts, offer graphics, checkout.
+  Outcome 05 → repeatable social/content systems.
+  Outcome 06 → campaign systems + hero creative.
+  Outcome 07 → acquisition assets.
+  Outcome 08 → reports, test variants, case studies.
+
+WORKFLOW (explicit, sequential, no thinking required):
+  Campaign idea → Treatment → Script → Storyboard → Shot List → Generation/
+  Production → Edit → Colour → Export.
+Support treatments, scripts, storyboards, shot cards, shot lists, sequences,
+references, cast, wardrobe, location, lighting, camera movement, sound,
+voiceover, edit direction, colour direction, aspect ratios and platform outputs.
+
+Beneath every asset type, show THE TOOL THAT DRIVES IT (via Integrations):
+  Video generation → Higgsfield; Edit/Colour → DaVinci Resolve; Social/Pres →
+  Canva; Creative processing → Adobe CC; Design/Web handoff → Figma. The OS
+  records the provider, model, task, tokens, cost, date and success.
+
+=====================================================================
+6 · DESIGN STUDIO (Canva-like visual editor)
+=====================================================================
+An original, visual-first, Canva-usability editor. Show the canvas immediately.
+Drag/drop, layers, text, images, video, shapes, frames, grids, alignment,
+spacing, fonts, colours, opacity, crop, resize, animation where supported,
+reusable components, brand styles, templates, undo/redo, autosave, versions,
+duplication, export. Design logos, social, stories, highlights, reels covers,
+TikTok covers, ads, carousels, posters, lookbooks, presentations, brand books,
+website mockups, landing pages, product pages, checkout, campaign boards,
+moodboards, film boards, storyboards, emails, dashboards and reports.
+AI actions inside canvas: Make this premium / Use the approved brand world /
+Give me 3 alternatives / Make this mobile-first / Turn this into a reel /
+Create five ad variants / Use this reference but create an original direction.
+
+=====================================================================
+7 · TEMPLATE LIBRARY (Canva-templates level, HUGE)
+=====================================================================
+Make it feel like Canva's template gallery. Millions-feeling, then browseable.
+CATEGORIES: Brand Identity, Social, Campaigns, Website, Content, Presentation,
+Analytics. Include logos, identity systems, brand books, posts, stories,
+highlights, reels, TikTok, tweets, carousels, ads, launch campaigns, product
+drops, seasonal campaigns, editorial, cinematic campaigns, homepages, landing
+pages, product pages, collections, cart, checkout, UGC, teasers, lookbooks,
+pitch decks, reports, and MORE.
+CLASSIFY templates by brand type: Streetwear, Luxury, Premium, Formal,
+Minimalist, Maximalist, Sportswear, Athleisure, Denim, Vintage, Y2K, Techwear,
+Outdoor, Skate, Cultural, Artistic, Avant-Garde, Essentials, Fast Fashion,
+Slow Fashion, Sustainable, Resort, Evening, Tailoring, Footwear, Accessories,
+Jewelry, Beauty/Fashion hybrid, and future categories. CAMPAIGN templates must
+be divided by these brand types too.
+ASSETS must carry campaign templates and be divided by brand type.
+LOGO templates must be plentiful.
+Users can upload templates and save finished work as reusable templates with
+variables: brand name, logo, colours, fonts, product image, campaign title, CTA.
+
+=====================================================================
+8 · REFERENCE INTELLIGENCE
+=====================================================================
+Upload reference photos, screenshots, videos, websites, campaigns. Analyse WHY
+each works: composition, colour, lighting, styling, typography, storytelling,
+motion, product presentation, culture, hierarchy. If the user says "I want
+Broken Planet-type content" or "Stussy-type content", extract the PRINCIPLES and
+create an ORIGINAL brand-specific direction. Never copy.
+
+=====================================================================
+9 · ASSET LIBRARY
+=====================================================================
+Global / Project / Campaign / Template / Reference scopes. Upload, drag/drop,
+preview, search, tags, favourites, duplicate, versioning, archive,
+approve/reject, link to outcomes/campaigns/templates. AI classifies assets.
+Holds campaign templates + templates split by type of brand.
+
+=====================================================================
+10 · BRAND BRAIN + DECISION LOG
+=====================================================================
+Persistent memory per brand: facts, inferred info, positioning, identity,
+audience, brand world, visual rules, products, competitors, website/social
+findings, decisions, rejected directions, approved directions, assets,
+references, campaigns, analytics, tests, learnings. Store source, confidence,
+date, project, approval state, version. Approved decisions are authoritative;
+rejected directions must not silently return. A DECISION LOG records what was
+decided and why; 87TH AI can answer "what did we decide / reject / change".
+
+=====================================================================
+11 · 87TH AI (project-aware, not a disconnected chatbox)
+=====================================================================
+Knows the current brand, project, framework, approved decisions, rejected
+directions, references, assets, campaigns, analytics, current outcome, pending
+work. Commands include: Analyze this brand / Continue Outcome 02 / What is wrong
+with the website? / Show the highest-priority problem / Create three solutions /
+Build the homepage redesign / Compare this to the approved brand world / Create
+a campaign / Turn this into a template / What is pending? / What did we decide? /
+Create a production brief / Build a client presentation / What should we test
+next? It should challenge weak ideas when appropriate.
+
+=====================================================================
+12 · EXPORT CENTER + BRAND ADVANCEMENT BOOK + CASE STUDY
+=====================================================================
+Brand Advancement Book (summary, diagnosis, identity, world, customer
+experience, conversion system, content engine, campaign system, acquisition
+loop, analytics, before/after, assets, experiments, future recommendations).
+Presentation mode, PDF export, template save. Case Study: Problem → Findings →
+Changes → Why → Before/After → Creative System → Campaign → Website → Results →
+Learnings. Export Center: strategy, brand book, campaign, website concepts,
+content calendar, social packs, analytics reports, case studies, client
+presentation, assets, templates, project package. Formats: PDF, PNG, JPG, SVG,
+CSV, JSON, ZIP where appropriate.
+
+=====================================================================
+13 · UI / UX — iOS 27 GLASSMORPHISM + LOUIS VUITTON MINIMALISM
+=====================================================================
+Interface and buttons reminiscent of iOS 27 glassmorphism: translucent layers,
+subtle blur, thin borders, refined depth, fluid motion, large typography,
+excellent spacing — BUT MINIMALISTIC, VISUAL and CALM, like a luxury fashion
+website (Louis Vuitton's clarity and restraint) rather than a SaaS dashboard.
+- Use #FF3231 as a precision accent, black accents, mostly white/light surfaces.
+- Avoid excessive red, generic SaaS cards, neon gradients, clutter, meaningless
+  animation, rounded pill-everything. Prefer a hairline grid, generous
+  whitespace, strong serif/sans type hierarchy, squared controls.
+- NO permanent large left sidebar. A compact THREE-LINE menu at top-left reveals:
+  Dashboard, Brands, Cinema Studio, Design Studio, Analytics, Assets, Campaigns,
+  Calendar, Templates, 87TH AI, Integrations, Settings. Top bar: project
+  switcher, search, progress, notifications, profile.
+
+=====================================================================
+14 · BACKEND / ARCHITECTURE
+=====================================================================
+Next.js + React + TypeScript, custom design system, Next.js server actions/
+routes, Supabase PostgreSQL, Supabase Auth + Google OAuth, Supabase Storage,
+Vercel/Netlify deployment, GitHub, Playwright for browser automation, background
+job/queue, Postgres + pgvector retrieval. Provider abstraction + AI Router
+(OpenAI / Claude / Gemini / Mistral / future). Log provider, model, task,
+tokens, estimated cost, date, success/failure. NO user-facing credits system;
+external providers paid separately; private usage/cost monitoring instead.
+
+DATABASE ENTITIES: users, projects, brands, frameworks, framework_phases,
+framework_steps, step_runs, analyses, findings, recommendations, decisions,
+brand_brain_items, references, assets, asset_versions, templates,
+template_versions, campaigns, campaign_assets, cinema_projects, shots,
+storyboards, design_documents, design_elements, ai_conversations, ai_messages,
+ai_runs, integrations, integration_tokens, analytics_sources, analytics_metrics,
+experiments, tasks, calendar_events, exports, activity_logs, notifications,
+email_templates, email_drafts.
+
+SECURITY: private-first, authenticated, no public registration. Never expose
+API keys / OAuth secrets / service-role creds to the browser. Secure env vars,
+authorization, RLS, validated uploads, safe errors, rate limits, audit logs.
+
+NO FAKE FUNCTIONALITY: never fake AI responses, analytics, API connections,
+scans, exports or uploads. Mark anything not implemented as planned/disabled.
+
+=====================================================================
+15 · WHAT TO BUILD THIS ROUND (visual + experience upgrade)
+=====================================================================
+A. A real, visible BRAND ADVANCEMENT JOURNEY / loader (outcomes 01–08 + %).
+B. Cinema Studio rebuilt as a production house: asset-type division (Stories,
+   Highlights, Reels, TikTok, Tweets, Posts, Carousels, Ads, UGC, Thumbnails,
+   Covers), a Brand Identity section, a Distinctive World test, outcome-aware
+   production, and a production-control panel showing which integration engine
+   drives each stage (Higgsfield / DaVinci Resolve / Canva / Adobe / Figma).
+C. Templates expanded and divided by brand type, with campaign templates and a
+   large logo-template set, presented like Canva's gallery.
+D. Gmail OAuth at login + Client Communication drafts (Brand Advancement
+   Complete etc.) with edit / preview / explicit-confirm send.
+E. iOS-27 glassmorphism + Louis Vuitton-minimal styling across the whole OS.
+F. ALL features must be real and functional (this is the FINAL acceptance bar:
+   log in, create a brand project, upload materials, add a website, persist
+   data, analyze, enter Outcome 01, complete/skip steps, see real progress,
+   approve/reject, generate outputs, edit, store assets, continue all 8
+   outcomes, run tests, create campaigns, use Cinema + Design Studio, browse
+   templates/references, connect tools, track analytics, run experiments,
+   export deliverables, draft client comms, save and reopen with Brand Brain
+   memory intact).
+
+THE PRODUCT IDENTITY IS THE EIGHT OUTCOMES. EVERYTHING ELSE IS A TOOL.
+
+=====================================================================
