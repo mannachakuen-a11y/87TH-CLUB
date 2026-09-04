@@ -4,6 +4,7 @@ import { useAppCtx } from "../app-context";
 import { PageHead } from "../components/ui";
 import { Ic } from "../lib/icons";
 import { ask87th } from "../lib/ai";
+import { apiAsk } from "../lib/api";
 import type { View } from "../nav";
 
 const SUGGESTIONS = [
@@ -26,6 +27,7 @@ export default function AIChat() {
   const p = state.projects.find((x) => x.id === activeId);
   const [msgs, setMsgs] = useState<{ who: "user" | "ai"; text: string; tone?: string }[]>([]);
   const [input, setInput] = useState("");
+  const [sending, setSending] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [msgs]);
@@ -49,15 +51,29 @@ export default function AIChat() {
     return action ? (map[action] ?? null) : null;
   };
 
-  const send = (text: string) => {
+  const send = async (text: string) => {
     const t = text.trim();
-    if (!t) return;
-    const reply = ask87th(p, t);
-    setMsgs((m) => [...m, { who: "user", text: t }, { who: "ai", text: reply.text, tone: reply.tone }]);
-    log(p.id, "mannas-ai", "ai", `You: ${t}\n→ ${reply.text}`);
+    if (!t || sending) return;
+    setSending(true);
+    setMsgs((m) => [...m, { who: "user", text: t }]);
     setInput("");
-    const v = actionToView(reply.action ?? "");
-    if (v) setTimeout(() => go(v), 600);
+    try {
+      const result = await apiAsk(t, p.id);
+      const tone = result.ok === false ? "warning" : result.tone;
+      setMsgs((m) => [...m, { who: "ai", text: result.text, tone }]);
+      log(p.id, "mannas-ai", "ai", `You: ${t}\n→ ${result.text}`);
+      const v = actionToView(result.action ?? "");
+      if (v) setTimeout(() => go(v), 600);
+    } catch {
+      const fallback = ask87th(p, t);
+      const fallbackText = `${fallback.text}\n\n[Local fallback used because the AI API could not be reached.]`;
+      setMsgs((m) => [...m, { who: "ai", text: fallbackText, tone: fallback.tone }]);
+      log(p.id, "mannas-ai", "ai", `You: ${t}\n→ ${fallbackText}`);
+      const v = actionToView(fallback.action ?? "");
+      if (v) setTimeout(() => go(v), 600);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -82,11 +98,11 @@ export default function AIChat() {
           </div>
           <div className="chat-input">
             <div className="chat-suggest">
-              {SUGGESTIONS.map((s) => <button key={s} className="chip outline" onClick={() => send(s)}>{s}</button>)}
+              {SUGGESTIONS.map((s) => <button key={s} className="chip outline" onClick={() => send(s)} disabled={sending}>{s}</button>)}
             </div>
             <div className="row" style={{ marginTop: 10 }}>
-              <input className="input" placeholder="Ask or command…" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send(input)} />
-              <button className="btn btn-accent" onClick={() => send(input)}><Ic.spark size={18} /></button>
+              <input className="input" placeholder="Ask or command…" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && send(input)} disabled={sending} />
+              <button className="btn btn-accent" onClick={() => send(input)} disabled={sending}><Ic.spark size={18} /></button>
             </div>
           </div>
         </div>
