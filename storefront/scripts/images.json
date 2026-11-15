@@ -1,0 +1,1221 @@
+[
+ {
+  "file": "products/puffer-jacket-black-1.jpg",
+  "use": "Quilted Puffer Jacket - Black (image 1)",
+  "subject": "Model wearing a black quilted down puffer jacket",
+  "src": "1605908502724-9093a79a1b39",
+  "fx": 0.5,
+  "fy": 0.62,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/puffer-jacket-black-2.jpg",
+  "use": "Quilted Puffer Jacket - Black (image 2)",
+  "subject": "Man wearing a black quilted jacket over a red hoodie",
+  "src": "1548126032-079a0fb0099d",
+  "fx": 0.5,
+  "fy": 0.45,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/bomber-jacket-rust-1.jpg",
+  "use": "Satin Bomber Jacket - Rust (image 1)",
+  "subject": "Rust satin bomber jacket on a hanger",
+  "src": "1591047139829-d91aecb6caea",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/bomber-jacket-rust-2.jpg",
+  "use": "Satin Bomber Jacket - Rust (image 2)",
+  "subject": "Rust satin bomber jacket - detail crop of zip and rib collar",
+  "src": "1591047139829-d91aecb6caea",
+  "fx": 0.5,
+  "fy": 0.55,
+  "zoom": 1.9
+ },
+ {
+  "file": "products/heavyweight-hoodie-grey-heather-1.jpg",
+  "use": "Heavyweight Hoodie - Grey Heather (image 1)",
+  "subject": "Person wearing a grey heather pullover hoodie, back view",
+  "src": "1556821840-3a63f95609a7",
+  "fx": 0.5,
+  "fy": 0.55,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/heavyweight-hoodie-grey-heather-2.jpg",
+  "use": "Heavyweight Hoodie - Grey Heather (image 2)",
+  "subject": "Grey pullover hoodie - detail crop of hood",
+  "src": "1556821840-3a63f95609a7",
+  "fx": 0.5,
+  "fy": 0.45,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/ribbed-beanie-forest-1.jpg",
+  "use": "Ribbed Beanie - Forest (image 1)",
+  "subject": "Person wearing a forest green slouchy rib-knit beanie",
+  "src": "1510598969022-c4c6c5d05769",
+  "fx": 0.45,
+  "fy": 0.3,
+  "zoom": 1.15
+ },
+ {
+  "file": "products/ribbed-beanie-forest-2.jpg",
+  "use": "Ribbed Beanie - Forest (image 2)",
+  "subject": "Forest green rib-knit beanie - detail crop",
+  "src": "1510598969022-c4c6c5d05769",
+  "fx": 0.45,
+  "fy": 0.22,
+  "zoom": 2.0
+ },
+ {
+  "file": "products/heavyweight-tee-white-1.jpg",
+  "use": "Heavyweight Blank Tee - White (image 1)",
+  "subject": "Model wearing a plain white crew neck t-shirt",
+  "src": "1521572163474-6864f9cf17ab",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/heavyweight-tee-white-2.jpg",
+  "use": "Heavyweight Blank Tee - White (image 2)",
+  "subject": "Man wearing a plain white crew neck t-shirt",
+  "src": "1586790170083-2f9ceadc732d",
+  "fx": 0.5,
+  "fy": 0.6,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/heavyweight-tee-black-1.jpg",
+  "use": "Heavyweight Blank Tee - Black (image 1)",
+  "subject": "Man wearing a plain black crew neck t-shirt",
+  "src": "1618517351616-38fb9c5210c6",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/heavyweight-tee-black-2.jpg",
+  "use": "Heavyweight Blank Tee - Black (image 2)",
+  "subject": "Plain black t-shirt - detail crop",
+  "src": "1618517351616-38fb9c5210c6",
+  "fx": 0.55,
+  "fy": 0.45,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/circle-print-tee-black-1.jpg",
+  "use": "Circle Print Tee - Black (image 1)",
+  "subject": "Black t-shirt with small circular chest print on a hanger, front",
+  "src": "1618354691373-d851c5c3a990",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "mode": "pad"
+ },
+ {
+  "file": "products/circle-print-tee-black-2.jpg",
+  "use": "Circle Print Tee - Black (image 2)",
+  "subject": "Same black t-shirt, back view with large circular print",
+  "src": "1618354691438-25bc04584c23",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "mode": "pad"
+ },
+ {
+  "file": "products/graphic-tee-natural-1.jpg",
+  "use": "Graphic Printed T-Shirt - Natural (image 1)",
+  "subject": "Natural t-shirt with a large blue framed graphic print",
+  "src": "1576566588028-4147f3842f27",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/graphic-tee-natural-2.jpg",
+  "use": "Graphic Printed T-Shirt - Natural (image 2)",
+  "subject": "Graphic print t-shirt - detail crop of print",
+  "src": "1576566588028-4147f3842f27",
+  "fx": 0.5,
+  "fy": 0.45,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/hand-sign-tee-black-1.jpg",
+  "use": "Hand Sign Graphic Tee - Black (image 1)",
+  "subject": "Man wearing a black t-shirt with a skeleton hand graphic",
+  "src": "1503341504253-dff4815485f1",
+  "fx": 0.5,
+  "fy": 0.45,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/hand-sign-tee-black-2.jpg",
+  "use": "Hand Sign Graphic Tee - Black (image 2)",
+  "subject": "Woman wearing the same black skeleton hand graphic t-shirt",
+  "src": "1503342217505-b0a15ec3261c",
+  "fx": 0.47,
+  "fy": 0.5,
+  "zoom": 1.25
+ },
+ {
+  "file": "products/script-tee-black-1.jpg",
+  "use": "Spaced Lettering Tee - Black (image 1)",
+  "subject": "Black t-shirt with spaced white chest lettering on a hanger",
+  "src": "1583743814966-8936f5b7be1a",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/script-tee-black-2.jpg",
+  "use": "Spaced Lettering Tee - Black (image 2)",
+  "subject": "Woman wearing the same black lettering t-shirt",
+  "src": "1583744946564-b52ac1c389c8",
+  "fx": 0.5,
+  "fy": 0.4,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/flannel-shirt-black-plaid-1.jpg",
+  "use": "Flannel Shirt - Black Plaid (image 1)",
+  "subject": "Black and grey buffalo plaid flannel shirt on a hanger",
+  "src": "1611312449412-6cefac5dc3e4",
+  "fx": 0.5,
+  "fy": 0.55,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/flannel-shirt-black-plaid-2.jpg",
+  "use": "Flannel Shirt - Black Plaid (image 2)",
+  "subject": "Plaid flannel shirt - detail crop of pockets",
+  "src": "1611312449412-6cefac5dc3e4",
+  "fx": 0.5,
+  "fy": 0.62,
+  "zoom": 1.9
+ },
+ {
+  "file": "products/flannel-shirt-mustard-plaid-1.jpg",
+  "use": "Flannel Shirt - Mustard Plaid (image 1)",
+  "subject": "Man wearing an open mustard plaid flannel shirt",
+  "src": "1607345366928-199ea26cfe3e",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/flannel-shirt-mustard-plaid-2.jpg",
+  "use": "Flannel Shirt - Mustard Plaid (image 2)",
+  "subject": "Mustard plaid flannel shirt - detail crop",
+  "src": "1607345366928-199ea26cfe3e",
+  "fx": 0.5,
+  "fy": 0.55,
+  "zoom": 1.7
+ },
+ {
+  "file": "products/trucker-jacket-rigid-indigo-1.jpg",
+  "use": "Denim Trucker Jacket - Rigid Indigo (image 1)",
+  "subject": "Dark indigo denim trucker jacket with corduroy collar on a hanger",
+  "src": "1611312449408-fcece27cdbb7",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/trucker-jacket-rigid-indigo-2.jpg",
+  "use": "Denim Trucker Jacket - Rigid Indigo (image 2)",
+  "subject": "Denim trucker jacket - detail crop of collar and chest pockets",
+  "src": "1611312449408-fcece27cdbb7",
+  "fx": 0.5,
+  "fy": 0.45,
+  "zoom": 1.9
+ },
+ {
+  "file": "products/heavyweight-hoodie-brown-1.jpg",
+  "use": "Heavyweight Hoodie - Brown (image 1)",
+  "subject": "Man wearing a brown pullover hoodie with drawcords",
+  "src": "1578768079052-aa76e52ff62e",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/heavyweight-hoodie-brown-2.jpg",
+  "use": "Heavyweight Hoodie - Brown (image 2)",
+  "subject": "Brown pullover hoodie - detail crop",
+  "src": "1578768079052-aa76e52ff62e",
+  "fx": 0.5,
+  "fy": 0.4,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/twill-cap-charcoal-1.jpg",
+  "use": "Washed Twill Cap - Charcoal (image 1)",
+  "subject": "Washed charcoal cotton twill baseball cap on white",
+  "src": "1521369909029-2afed882baee",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "mode": "pad"
+ },
+ {
+  "file": "products/twill-cap-charcoal-2.jpg",
+  "use": "Washed Twill Cap - Charcoal (image 2)",
+  "subject": "Washed twill cap - detail crop",
+  "src": "1521369909029-2afed882baee",
+  "fx": 0.45,
+  "fy": 0.5,
+  "zoom": 1.6
+ },
+ {
+  "file": "products/moto-jacket-black-1.jpg",
+  "use": "Leather Moto Jacket - Black (image 1)",
+  "subject": "Black leather motorcycle jacket laid flat",
+  "src": "1551028719-00167b16eac5",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/moto-jacket-black-2.jpg",
+  "use": "Leather Moto Jacket - Black (image 2)",
+  "subject": "Man wearing a black leather motorcycle jacket",
+  "src": "1520975954732-35dd22299614",
+  "fx": 0.5,
+  "fy": 0.45,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/chunky-knit-oat-1.jpg",
+  "use": "Chunky Knit Sweater - Oat (image 1)",
+  "subject": "Oat textured knit sweater on a hanger",
+  "src": "1631541909061-71e349d1f203",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/chunky-knit-oat-2.jpg",
+  "use": "Chunky Knit Sweater - Oat (image 2)",
+  "subject": "Folded cream knit sweaters - texture detail",
+  "src": "1624623278313-a930126a11c3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/straight-jean-black-rinse-1.jpg",
+  "use": "Straight Leg Jeans - Black Rinse (image 1)",
+  "subject": "Dark straight leg jeans laid flat",
+  "src": "1624378439575-d8705ad7ae80",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "mode": "pad"
+ },
+ {
+  "file": "products/straight-jean-black-rinse-2.jpg",
+  "use": "Straight Leg Jeans - Black Rinse (image 2)",
+  "subject": "Straight leg jeans - detail crop of waistband",
+  "src": "1624378439575-d8705ad7ae80",
+  "fx": 0.5,
+  "fy": 0.2,
+  "zoom": 2.0
+ },
+ {
+  "file": "products/oversized-hoodie-pink-1.jpg",
+  "use": "Oversized Hoodie - Pink (image 1)",
+  "subject": "Woman wearing an oversized pink pullover hoodie",
+  "src": "1565693413579-8ff3fdc1b03b",
+  "fx": 0.55,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/oversized-hoodie-pink-2.jpg",
+  "use": "Oversized Hoodie - Pink (image 2)",
+  "subject": "Pink oversized hoodie - detail crop",
+  "src": "1565693413579-8ff3fdc1b03b",
+  "fx": 0.55,
+  "fy": 0.65,
+  "zoom": 1.7
+ },
+ {
+  "file": "products/skull-hoodie-mustard-1.jpg",
+  "use": "Skull Back Print Hoodie - Mustard (image 1)",
+  "subject": "Mustard hoodie with skull and rose back print, worn, back view",
+  "src": "1609873814058-a8928924184a",
+  "fx": 0.5,
+  "fy": 0.55,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/skull-hoodie-mustard-2.jpg",
+  "use": "Skull Back Print Hoodie - Mustard (image 2)",
+  "subject": "Skull back print - detail crop",
+  "src": "1609873814058-a8928924184a",
+  "fx": 0.5,
+  "fy": 0.55,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/crew-sweat-white-1.jpg",
+  "use": "Crewneck Sweatshirt - White (image 1)",
+  "subject": "White crewneck sweatshirt laid flat",
+  "src": "1620799140408-edc6dcb6d633",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.15
+ },
+ {
+  "file": "products/crew-sweat-white-2.jpg",
+  "use": "Crewneck Sweatshirt - White (image 2)",
+  "subject": "White crewneck sweatshirt - detail crop of collar",
+  "src": "1620799140408-edc6dcb6d633",
+  "fx": 0.5,
+  "fy": 0.32,
+  "zoom": 1.7
+ },
+ {
+  "file": "products/crew-sweat-black-1.jpg",
+  "use": "Crewneck Sweatshirt - Black (image 1)",
+  "subject": "Man wearing a black crewneck sweatshirt with small chest print",
+  "src": "1614975059251-992f11792b9f",
+  "fx": 0.5,
+  "fy": 0.55,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/crew-sweat-black-2.jpg",
+  "use": "Crewneck Sweatshirt - Black (image 2)",
+  "subject": "Black crewneck sweatshirt - detail crop",
+  "src": "1614975059251-992f11792b9f",
+  "fx": 0.55,
+  "fy": 0.55,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/round-sunglasses-gold-green-1.jpg",
+  "use": "Round Metal Sunglasses - Gold / Green (image 1)",
+  "subject": "Round gold metal sunglasses with green lenses on white",
+  "src": "1511499767150-a48a237f0083",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "mode": "pad"
+ },
+ {
+  "file": "products/round-sunglasses-gold-green-2.jpg",
+  "use": "Round Metal Sunglasses - Gold / Green (image 2)",
+  "subject": "Round metal sunglasses - detail crop",
+  "src": "1511499767150-a48a237f0083",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.6
+ },
+ {
+  "file": "products/lighthouse-tee-white-1.jpg",
+  "use": "Lighthouse Back Print Tee - White (image 1)",
+  "subject": "Man wearing a white t-shirt with a lighthouse illustration on the back",
+  "src": "1564859228273-274232fdb516",
+  "fx": 0.5,
+  "fy": 0.6,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/lighthouse-tee-white-2.jpg",
+  "use": "Lighthouse Back Print Tee - White (image 2)",
+  "subject": "Lighthouse back print - detail crop",
+  "src": "1564859228273-274232fdb516",
+  "fx": 0.5,
+  "fy": 0.62,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/field-jacket-olive-1.jpg",
+  "use": "Utility Field Jacket - Olive (image 1)",
+  "subject": "Woman wearing an olive four-pocket utility field jacket",
+  "src": "1544022613-e87ca75a784a",
+  "fx": 0.5,
+  "fy": 0.55,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/field-jacket-olive-2.jpg",
+  "use": "Utility Field Jacket - Olive (image 2)",
+  "subject": "Olive field jacket - detail crop of pockets",
+  "src": "1544022613-e87ca75a784a",
+  "fx": 0.5,
+  "fy": 0.6,
+  "zoom": 1.7
+ },
+ {
+  "file": "products/fair-isle-knit-multi-1.jpg",
+  "use": "Fair Isle Knit Sweater - Multi (image 1)",
+  "subject": "Fair Isle patterned knit sweater sleeves",
+  "src": "1611911813383-67769b37a149",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "mode": "pad"
+ },
+ {
+  "file": "products/fair-isle-knit-multi-2.jpg",
+  "use": "Fair Isle Knit Sweater - Multi (image 2)",
+  "subject": "Fair Isle knit - pattern detail",
+  "src": "1611911813383-67769b37a149",
+  "fx": 0.4,
+  "fy": 0.5,
+  "zoom": 1.7
+ },
+ {
+  "file": "products/slim-jean-mid-wash-1.jpg",
+  "use": "Slim Tapered Jeans - Mid Wash (image 1)",
+  "subject": "Person wearing mid wash slim tapered jeans",
+  "src": "1555689502-c4b22d76c56f",
+  "fx": 0.5,
+  "fy": 0.55,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/slim-jean-mid-wash-2.jpg",
+  "use": "Slim Tapered Jeans - Mid Wash (image 2)",
+  "subject": "Mid wash jeans - detail crop",
+  "src": "1555689502-c4b22d76c56f",
+  "fx": 0.5,
+  "fy": 0.45,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/ribbed-beanie-black-1.jpg",
+  "use": "Ribbed Beanie - Black (image 1)",
+  "subject": "Black rib-knit beanie laid flat (crop of beanie flat lay)",
+  "src": "1576871337632-b9aef4c17ab9",
+  "fx": 0.38,
+  "fy": 0.32,
+  "zoom": 2.2
+ },
+ {
+  "file": "products/ribbed-beanie-black-2.jpg",
+  "use": "Ribbed Beanie - Black (image 2)",
+  "subject": "Flat lay of rib-knit beanies in black, pink, yellow and green",
+  "src": "1576871337632-b9aef4c17ab9",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/cuff-beanie-pink-1.jpg",
+  "use": "Ribbed Cuff Beanie - Pink (image 1)",
+  "subject": "Pink cuffed rib-knit beanie (crop of beanie flat lay)",
+  "src": "1576871337632-b9aef4c17ab9",
+  "fx": 0.67,
+  "fy": 0.55,
+  "zoom": 2.0
+ },
+ {
+  "file": "products/cuff-beanie-pink-2.jpg",
+  "use": "Ribbed Cuff Beanie - Pink (image 2)",
+  "subject": "Flat lay of rib-knit beanies in black, pink, yellow and green",
+  "src": "1576871337632-b9aef4c17ab9",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/cuff-beanie-yellow-1.jpg",
+  "use": "Ribbed Cuff Beanie - Yellow (image 1)",
+  "subject": "Yellow cuffed rib-knit beanie (crop of beanie flat lay)",
+  "src": "1576871337632-b9aef4c17ab9",
+  "fx": 0.28,
+  "fy": 0.98,
+  "zoom": 2.8
+ },
+ {
+  "file": "products/cuff-beanie-yellow-2.jpg",
+  "use": "Ribbed Cuff Beanie - Yellow (image 2)",
+  "subject": "Flat lay of rib-knit beanies in black, pink, yellow and green",
+  "src": "1576871337632-b9aef4c17ab9",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/trucker-cap-white-1.jpg",
+  "use": "Mesh Trucker Cap - White (image 1)",
+  "subject": "White mesh trucker cap on white",
+  "src": "1588850561407-ed78c282e89b",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "mode": "pad"
+ },
+ {
+  "file": "products/trucker-cap-white-2.jpg",
+  "use": "Mesh Trucker Cap - White (image 2)",
+  "subject": "White trucker cap - detail crop",
+  "src": "1588850561407-ed78c282e89b",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.7
+ },
+ {
+  "file": "products/fleece-pant-grey-heather-1.jpg",
+  "use": "Fleece Sweatpant - Grey Heather (image 1)",
+  "subject": "Person wearing grey heather straight-leg sweatpants",
+  "src": "1602573991155-21f0143bb45c",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "mode": "pad"
+ },
+ {
+  "file": "products/fleece-pant-grey-heather-2.jpg",
+  "use": "Fleece Sweatpant - Grey Heather (image 2)",
+  "subject": "Woman wearing grey sweatpants, crouching",
+  "src": "1588117305388-c2631a279f82",
+  "fx": 0.5,
+  "fy": 0.65,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/sherpa-trucker-dark-wash-1.jpg",
+  "use": "Sherpa Lined Denim Jacket - Dark Wash (image 1)",
+  "subject": "Man wearing a dark wash sherpa lined denim jacket",
+  "src": "1544923246-77307dd654cb",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/sherpa-trucker-dark-wash-2.jpg",
+  "use": "Sherpa Lined Denim Jacket - Dark Wash (image 2)",
+  "subject": "Sherpa collar - detail crop",
+  "src": "1544923246-77307dd654cb",
+  "fx": 0.5,
+  "fy": 0.45,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/pigment-tee-lilac-1.jpg",
+  "use": "Pigment Dyed Tee - Lilac (image 1)",
+  "subject": "Man wearing a faded lilac t-shirt with small chest print",
+  "src": "1622470953794-aa9c70b0fb9d",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/pigment-tee-lilac-2.jpg",
+  "use": "Pigment Dyed Tee - Lilac (image 2)",
+  "subject": "Pink pigment dyed tee - detail crop",
+  "src": "1622470953794-aa9c70b0fb9d",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/cat-eye-sunglasses-champagne-1.jpg",
+  "use": "Cat Eye Sunglasses - Champagne (image 1)",
+  "subject": "Champagne metal cat-eye sunglasses with gradient lenses",
+  "src": "1508296695146-257a814070b4",
+  "fx": 0.55,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/cat-eye-sunglasses-champagne-2.jpg",
+  "use": "Cat Eye Sunglasses - Champagne (image 2)",
+  "subject": "Cat-eye sunglasses - detail crop",
+  "src": "1508296695146-257a814070b4",
+  "fx": 0.55,
+  "fy": 0.45,
+  "zoom": 1.6
+ },
+ {
+  "file": "products/leather-backpack-cognac-1.jpg",
+  "use": "Leather Backpack - Cognac (image 1)",
+  "subject": "Cognac leather backpack on a plain backdrop",
+  "src": "1622560480605-d83c853bc5c3",
+  "fx": 0.5,
+  "fy": 0.55,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/leather-backpack-cognac-2.jpg",
+  "use": "Leather Backpack - Cognac (image 2)",
+  "subject": "Leather backpack - detail crop of front pocket",
+  "src": "1622560480605-d83c853bc5c3",
+  "fx": 0.5,
+  "fy": 0.55,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/piped-tee-black-1.jpg",
+  "use": "Contrast Piping Tee - Black (image 1)",
+  "subject": "Man wearing a black t-shirt with contrast piping",
+  "src": "1622519407650-3df9883f76a5",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/piped-tee-black-2.jpg",
+  "use": "Contrast Piping Tee - Black (image 2)",
+  "subject": "Contrast piping tee - detail crop",
+  "src": "1622519407650-3df9883f76a5",
+  "fx": 0.5,
+  "fy": 0.45,
+  "zoom": 1.7
+ },
+ {
+  "file": "products/suede-overshirt-tan-1.jpg",
+  "use": "Suede Overshirt - Tan (image 1)",
+  "subject": "Man wearing a tan suede overshirt",
+  "src": "1617114919297-3c8ddb01f599",
+  "fx": 0.5,
+  "fy": 0.45,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/suede-overshirt-tan-2.jpg",
+  "use": "Suede Overshirt - Tan (image 2)",
+  "subject": "Suede overshirt - detail crop",
+  "src": "1617114919297-3c8ddb01f599",
+  "fx": 0.5,
+  "fy": 0.35,
+  "zoom": 1.9
+ },
+ {
+  "file": "products/bifold-wallet-brown-1.jpg",
+  "use": "Leather Bifold Wallet - Brown (image 1)",
+  "subject": "Brown leather bifold wallet",
+  "src": "1627123424574-724758594e93",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/bifold-wallet-brown-2.jpg",
+  "use": "Leather Bifold Wallet - Brown (image 2)",
+  "subject": "Leather bifold wallet - detail crop",
+  "src": "1627123424574-724758594e93",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.7
+ },
+ {
+  "file": "products/heart-tee-white-1.jpg",
+  "use": "Heart Patch Tee - White (image 1)",
+  "subject": "Man wearing a white t-shirt with a small black heart print",
+  "src": "1613852348851-df1739db8201",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/heart-tee-white-2.jpg",
+  "use": "Heart Patch Tee - White (image 2)",
+  "subject": "Heart print - detail crop",
+  "src": "1613852348851-df1739db8201",
+  "fx": 0.5,
+  "fy": 0.45,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/heavyweight-hoodie-orange-1.jpg",
+  "use": "Heavyweight Hoodie - Orange (image 1)",
+  "subject": "Man wearing an orange pullover hoodie",
+  "src": "1509942774463-acf339cf87d5",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/heavyweight-hoodie-orange-2.jpg",
+  "use": "Heavyweight Hoodie - Orange (image 2)",
+  "subject": "Orange hoodie - detail crop",
+  "src": "1509942774463-acf339cf87d5",
+  "fx": 0.52,
+  "fy": 0.62,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/crew-sweat-pink-1.jpg",
+  "use": "Crewneck Sweatshirt - Pink (image 1)",
+  "subject": "Man wearing a pale pink crewneck sweatshirt",
+  "src": "1516826957135-700dedea698c",
+  "fx": 0.5,
+  "fy": 0.4,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/crew-sweat-pink-2.jpg",
+  "use": "Crewneck Sweatshirt - Pink (image 2)",
+  "subject": "Pink crewneck - detail crop",
+  "src": "1516826957135-700dedea698c",
+  "fx": 0.45,
+  "fy": 0.3,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/rider-jacket-brown-1.jpg",
+  "use": "Leather Rider Jacket - Brown (image 1)",
+  "subject": "Man wearing a brown leather rider jacket",
+  "src": "1487222477894-8943e31ef7b2",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/rider-jacket-brown-2.jpg",
+  "use": "Leather Rider Jacket - Brown (image 2)",
+  "subject": "Man wearing a brown leather jacket, close up",
+  "src": "1614252369475-531eba835eb1",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/washed-trucker-light-wash-1.jpg",
+  "use": "Washed Denim Jacket - Light Wash (image 1)",
+  "subject": "Light stonewash denim jacket worn over a white tee",
+  "src": "1495105787522-5334e3ffa0ef",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/washed-trucker-light-wash-2.jpg",
+  "use": "Washed Denim Jacket - Light Wash (image 2)",
+  "subject": "Woman wearing a light denim jacket over a grey hoodie",
+  "src": "1517841905240-472988babdf9",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/dot-shirt-chambray-1.jpg",
+  "use": "Chambray Dot Shirt - Chambray (image 1)",
+  "subject": "Chambray dot print long-sleeve shirt on a hanger",
+  "src": "1596755094514-f87e34085b2c",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/dot-shirt-chambray-2.jpg",
+  "use": "Chambray Dot Shirt - Chambray (image 2)",
+  "subject": "Chambray dot shirt - detail crop",
+  "src": "1596755094514-f87e34085b2c",
+  "fx": 0.5,
+  "fy": 0.45,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/oxford-shirt-light-blue-1.jpg",
+  "use": "Oxford Shirt - Light Blue (image 1)",
+  "subject": "Man wearing a light blue oxford shirt",
+  "src": "1589310243389-96a5483213a8",
+  "fx": 0.5,
+  "fy": 0.45,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/oxford-shirt-light-blue-2.jpg",
+  "use": "Oxford Shirt - Light Blue (image 2)",
+  "subject": "Oxford shirt - detail crop",
+  "src": "1589310243389-96a5483213a8",
+  "fx": 0.5,
+  "fy": 0.4,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/cable-cardigan-forest-1.jpg",
+  "use": "Oversized Chunky Knit Sweater - Forest (image 1)",
+  "subject": "Woman wearing a long forest green chunky knit sweater",
+  "src": "1580331451062-99ff652288d7",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/cable-cardigan-forest-2.jpg",
+  "use": "Oversized Chunky Knit Sweater - Forest (image 2)",
+  "subject": "Cable knit - detail crop",
+  "src": "1580331451062-99ff652288d7",
+  "fx": 0.5,
+  "fy": 0.45,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/distressed-jean-light-wash-1.jpg",
+  "use": "Distressed Jeans - Light Wash (image 1)",
+  "subject": "Person wearing light wash jeans",
+  "src": "1582552938357-32b906df40cb",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/distressed-jean-light-wash-2.jpg",
+  "use": "Distressed Jeans - Light Wash (image 2)",
+  "subject": "Light wash jeans - detail crop",
+  "src": "1582552938357-32b906df40cb",
+  "fx": 0.5,
+  "fy": 0.55,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/pleated-trouser-khaki-1.jpg",
+  "use": "Wide Leg Pleated Trouser - Khaki (image 1)",
+  "subject": "Woman wearing wide leg pleated khaki trousers",
+  "src": "1614251055880-ee96e4803393",
+  "fx": 0.5,
+  "fy": 0.55,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/pleated-trouser-khaki-2.jpg",
+  "use": "Wide Leg Pleated Trouser - Khaki (image 2)",
+  "subject": "Pleated trouser - detail crop",
+  "src": "1614251055880-ee96e4803393",
+  "fx": 0.5,
+  "fy": 0.65,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/stripe-short-grey-stripe-1.jpg",
+  "use": "Striped Pull-On Short - Grey Stripe (image 1)",
+  "subject": "Woman wearing grey and white striped pull-on shorts",
+  "src": "1598522325074-042db73aa4e6",
+  "fx": 0.5,
+  "fy": 0.6,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/stripe-short-grey-stripe-2.jpg",
+  "use": "Striped Pull-On Short - Grey Stripe (image 2)",
+  "subject": "Striped shorts - detail crop",
+  "src": "1598522325074-042db73aa4e6",
+  "fx": 0.5,
+  "fy": 0.7,
+  "zoom": 1.8
+ },
+ {
+  "file": "products/embroidered-cap-sand-1.jpg",
+  "use": "Embroidered Cap - Sand (image 1)",
+  "subject": "Sand cotton cap with ice cream cone embroidery, worn",
+  "src": "1575428652377-a2d80e2277fc",
+  "fx": 0.5,
+  "fy": 0.3,
+  "zoom": 1.35
+ },
+ {
+  "file": "products/embroidered-cap-sand-2.jpg",
+  "use": "Embroidered Cap - Sand (image 2)",
+  "subject": "Embroidered cap - detail crop",
+  "src": "1575428652377-a2d80e2277fc",
+  "fx": 0.5,
+  "fy": 0.3,
+  "zoom": 1.6
+ },
+ {
+  "file": "products/wool-beanie-brown-1.jpg",
+  "use": "Wool Watch Cap - Brown (image 1)",
+  "subject": "Man wearing a brown knit watch cap",
+  "src": "1610384104075-e05c8cf200c3",
+  "fx": 0.45,
+  "fy": 0.4,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/wool-beanie-brown-2.jpg",
+  "use": "Wool Watch Cap - Brown (image 2)",
+  "subject": "Brown watch cap - detail crop",
+  "src": "1610384104075-e05c8cf200c3",
+  "fx": 0.45,
+  "fy": 0.2,
+  "zoom": 1.9
+ },
+ {
+  "file": "products/acetate-sunglasses-clear-brown-1.jpg",
+  "use": "Acetate Sunglasses - Clear / Brown (image 1)",
+  "subject": "Clear acetate sunglasses with brown lenses",
+  "src": "1577803645773-f96470509666",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/acetate-sunglasses-clear-brown-2.jpg",
+  "use": "Acetate Sunglasses - Clear / Brown (image 2)",
+  "subject": "Acetate sunglasses - detail crop",
+  "src": "1577803645773-f96470509666",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.6
+ },
+ {
+  "file": "products/canvas-backpack-navy-1.jpg",
+  "use": "Canvas Backpack - Navy (image 1)",
+  "subject": "Navy canvas backpack",
+  "src": "1553062407-98eeb64c6a62",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/canvas-backpack-navy-2.jpg",
+  "use": "Canvas Backpack - Navy (image 2)",
+  "subject": "Canvas backpack - detail crop",
+  "src": "1553062407-98eeb64c6a62",
+  "fx": 0.45,
+  "fy": 0.5,
+  "zoom": 1.6
+ },
+ {
+  "file": "products/crossbody-bag-white-1.jpg",
+  "use": "Leather Crossbody Bag - White (image 1)",
+  "subject": "White leather crossbody bag hanging on a hook",
+  "src": "1604176424472-17cd740f74e9",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/crossbody-bag-white-2.jpg",
+  "use": "Leather Crossbody Bag - White (image 2)",
+  "subject": "Crossbody bag - detail crop",
+  "src": "1604176424472-17cd740f74e9",
+  "fx": 0.5,
+  "fy": 0.62,
+  "zoom": 1.7
+ },
+ {
+  "file": "products/heavyweight-tee-sky-1.jpg",
+  "use": "Heavyweight Blank Tee - Sky (image 1)",
+  "subject": "Pale blue plain t-shirt on a hanger",
+  "src": "1564584217132-2271feaeb3c5",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0
+ },
+ {
+  "file": "products/heavyweight-tee-sky-2.jpg",
+  "use": "Heavyweight Blank Tee - Sky (image 2)",
+  "subject": "Pale blue tee - detail crop",
+  "src": "1564584217132-2271feaeb3c5",
+  "fx": 0.5,
+  "fy": 0.45,
+  "zoom": 1.8
+ },
+ {
+  "file": "editorial/campaign-01.jpg",
+  "src": "1550246140-29f40b909e5a",
+  "ratio": "4:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "gray": true,
+  "subject": "Person in a white hoodie crouching against a painted wall (greyscale)",
+  "use": "Homepage campaign block 1"
+ },
+ {
+  "file": "editorial/campaign-02.jpg",
+  "src": "1529139574466-a303027c1d8b",
+  "ratio": "4:5",
+  "fx": 0.5,
+  "fy": 0.45,
+  "subject": "Woman in sunglasses, red tee and black jacket",
+  "use": "Homepage campaign block 2"
+ },
+ {
+  "file": "editorial/campaign-03.jpg",
+  "src": "1552374196-1ab2a1c593e8",
+  "ratio": "4:5",
+  "fx": 0.5,
+  "fy": 0.5,
+  "subject": "Man seated on a stool in a tan jacket and white trousers",
+  "use": "Homepage campaign block 3"
+ },
+ {
+  "file": "editorial/campaign-04.jpg",
+  "src": "1515886657613-9f3515b0c78f",
+  "ratio": "4:5",
+  "fx": 0.5,
+  "fy": 0.5,
+  "subject": "Woman in a yellow fleece hoodie and sweatpants on a court",
+  "use": "Homepage campaign block 4"
+ },
+ {
+  "file": "editorial/callout-01.jpg",
+  "src": "1517841905240-472988babdf9",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "subject": "Woman in a denim jacket over a grey hoodie",
+  "use": "New Arrivals grid callout 1"
+ },
+ {
+  "file": "editorial/callout-02.jpg",
+  "src": "1504593811423-6dd665756598",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "subject": "Man in a vest and shirt on a street corner",
+  "use": "New Arrivals grid callout 2"
+ },
+ {
+  "file": "editorial/callout-03.jpg",
+  "src": "1601333144130-8cbb312386b6",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "subject": "Man in a grey beanie and light denim jacket on a city street",
+  "use": "New Arrivals grid callout 3"
+ },
+ {
+  "file": "editorial/callout-04.jpg",
+  "src": "1619042821874-587aa4335f39",
+  "ratio": "2:3",
+  "fx": 0.6,
+  "fy": 0.5,
+  "subject": "Man in a cap and white sweatshirt with a backpack",
+  "use": "New Arrivals grid callout 4"
+ },
+ {
+  "file": "editorial/callout-05.jpg",
+  "src": "1559582798-678dfc71ccd8",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "subject": "Man walking in a camel coat carrying a holdall",
+  "use": "New Arrivals grid callout 5"
+ },
+ {
+  "file": "categories/tees.jpg",
+  "src": "1523381210434-271e8be1f52b",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "subject": "Row of t-shirts on wooden hangers",
+  "use": "Category callout - tees"
+ },
+ {
+  "file": "categories/outerwear.jpg",
+  "src": "1559551409-dadc959f76b8",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "subject": "Shearling and leather jackets hanging on a brick wall",
+  "use": "Category callout - outerwear"
+ },
+ {
+  "file": "categories/beanies.jpg",
+  "src": "1576871337632-b9aef4c17ab9",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "subject": "Flat lay of rib-knit beanies",
+  "use": "Category callout - beanies"
+ },
+ {
+  "file": "categories/headwear.jpg",
+  "src": "1622445275463-afa2ab738c34",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "subject": "Man in a white cap and white tee",
+  "use": "Category callout - headwear"
+ },
+ {
+  "file": "categories/knits.jpg",
+  "src": "1624623278313-a930126a11c3",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "subject": "Stack of folded cream knitwear",
+  "use": "Category callout - knits"
+ },
+ {
+  "file": "categories/sweats.jpg",
+  "src": "1588117305388-c2631a279f82",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "subject": "Woman in grey sweatpants crouching",
+  "use": "Category callout - sweats"
+ },
+ {
+  "file": "categories/tops-shirts.jpg",
+  "src": "1607345366928-199ea26cfe3e",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "subject": "Man in a mustard plaid flannel shirt",
+  "use": "Category callout - tops-shirts"
+ },
+ {
+  "file": "categories/bottoms.jpg",
+  "src": "1599012307530-d163bd04ecab",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "subject": "Wall display of trousers, shirts and boots",
+  "use": "Category callout - bottoms"
+ },
+ {
+  "file": "categories/denim.jpg",
+  "src": "1604176354204-9268737828e4",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "subject": "Stack of folded denim jeans",
+  "use": "Category callout - denim"
+ },
+ {
+  "file": "categories/sunglasses.jpg",
+  "src": "1511499767150-a48a237f0083",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "subject": "Round metal sunglasses on white",
+  "use": "Category callout - sunglasses"
+ },
+ {
+  "file": "categories/accessories.jpg",
+  "src": "1622560480605-d83c853bc5c3",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "subject": "Cognac leather backpack",
+  "use": "Category callout - accessories"
+ },
+ {
+  "file": "categories/archive.jpg",
+  "src": "1558769132-cb1aea458c5e",
+  "ratio": "2:3",
+  "fx": 0.5,
+  "fy": 0.5,
+  "zoom": 1.0,
+  "subject": "Rail of neutral-toned clothing",
+  "use": "Category callout - archive"
+ }
+]
