@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { asset } from "../data";
 
 const BLOCKS = [
-  { to: "/collections/new-arrivals", desktop: "/images/editorial/campaign-01.jpg", mobile: "/images/editorial/campaign-01.jpg", label: "New Arrivals", wide: true },
-  { to: "/collections/tees", desktop: "/images/editorial/campaign-02.jpg", mobile: "/images/editorial/campaign-02.jpg", label: "Tees" },
-  { to: "/collections/outerwear", desktop: "/images/editorial/campaign-03.jpg", mobile: "/images/editorial/campaign-03.jpg", label: "Outerwear" },
-  { to: "/collections/sweats", desktop: "/images/editorial/campaign-04.jpg", mobile: "/images/editorial/campaign-04.jpg", label: "Sweats" },
+  { to: "/collections/new-arrivals", desktop: asset("/images/editorial/campaign-01.jpg"), mobile: asset("/images/editorial/campaign-01.jpg"), label: "New Arrivals", wide: true },
+  { to: "/collections/tees", desktop: asset("/images/editorial/campaign-02.jpg"), mobile: asset("/images/editorial/campaign-02.jpg"), label: "Tees" },
+  { to: "/collections/outerwear", desktop: asset("/images/editorial/campaign-03.jpg"), mobile: asset("/images/editorial/campaign-03.jpg"), label: "Outerwear" },
+  { to: "/collections/sweats", desktop: asset("/images/editorial/campaign-04.jpg"), mobile: asset("/images/editorial/campaign-04.jpg"), label: "Sweats" },
 ];
 
 export default function Home() {

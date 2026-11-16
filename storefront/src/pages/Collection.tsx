@@ -23,7 +23,7 @@ export default function Collection() {
   const active = countFilters(applied);
 
   const callouts: Callout[] = (() => {
-    const editorial = EDITORIAL.map((f, i) => ({ src: `/images/${f}`, to: "/pages/chapters", alt: `Campaign image ${i + 1}` }));
+    const editorial = EDITORIAL.map((f, i) => ({ src: f, to: "/pages/chapters", alt: `Campaign image ${i + 1}` }));
     if (handle === "new-arrivals" || handle === "all") return editorial;
     const cat = categoryImages[handle];
     return cat ? [{ src: cat, to: "/pages/chapters", alt: `${data.title} campaign image` }, ...editorial.slice(0, 2)] : editorial;

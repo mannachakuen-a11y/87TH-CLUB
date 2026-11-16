@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { callouts } from "../data";
+import { asset, callouts } from "../data";
 import NotFound from "./NotFound";
 
 function useHashScroll() {
@@ -107,7 +107,7 @@ function Legal() {
         <h2>Photography</h2>
         <p>
           All photographs are from Unsplash and used under the Unsplash License. A full list of images and their sources is in the
-          project's asset manifest (<a className="u" href="/images/manifest.json">manifest.json</a>).
+          project's asset manifest (<a className="u" href={asset("/images/manifest.json")}>manifest.json</a>).
         </p>
       </section>
       <section>
@@ -119,7 +119,7 @@ function Legal() {
 }
 
 function Chapters() {
-  const imgs = ["/images/editorial/campaign-02.jpg", "/images/editorial/campaign-03.jpg", "/images/editorial/campaign-04.jpg", ...callouts.map((c) => `/images/${c}`)];
+  const imgs = [...["/images/editorial/campaign-02.jpg", "/images/editorial/campaign-03.jpg", "/images/editorial/campaign-04.jpg"].map(asset), ...callouts];
   return (
     <>
       <h1>Chapters</h1>

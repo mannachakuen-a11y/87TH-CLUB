@@ -1,5 +1,8 @@
 import catalog from "./data/catalog.json";
 
+/** Resolve a public asset path ("/images/..") against the build base (relative in the static preview build). */
+export const asset = (p: string) => import.meta.env.BASE_URL + p.replace(/^\//, "");
+
 export type Product = {
   handle: string;
   family: string;
@@ -17,10 +20,10 @@ export type Product = {
   details: string[];
 };
 
-export const products: Product[] = catalog.products as Product[];
+export const products: Product[] = (catalog.products as Product[]).map((p) => ({ ...p, images: p.images.map(asset) }));
 export const collections: { handle: string; title: string }[] = catalog.collections;
-export const categoryImages: Record<string, string> = catalog.categoryImages;
-export const callouts: string[] = catalog.callouts;
+export const categoryImages: Record<string, string> = Object.fromEntries(Object.entries(catalog.categoryImages).map(([k, v]) => [k, asset(v)]));
+export const callouts: string[] = catalog.callouts.map((c) => asset(`/images/${c}`));
 
 export const NAV = collections; // New Arrivals ... Accessories, in sidebar order
 
