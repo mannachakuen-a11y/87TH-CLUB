@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FREE_SHIPPING_USD, formatPrice, getProduct } from "../data";
 import { useStore } from "../store";
+import { CloseIcon } from "./Icons";
 
 export default function BagDrawer() {
   const s = useStore();
@@ -19,16 +20,17 @@ export default function BagDrawer() {
   return (
     <div className={`drawer-root${s.bagOpen ? " is-open" : ""}`} aria-hidden={!s.bagOpen}>
       <div className="drawer-overlay" onClick={close} />
-      <aside className="drawer" role="dialog" aria-modal="true" aria-label="Shopping bag">
+      <aside className="drawer" role="dialog" aria-modal="true" aria-label="Your cart">
         <div className="drawer-head">
-          <h2>Shopping Bag{s.count > 0 ? ` (${s.count})` : ""}</h2>
-          <button type="button" onClick={close}>
-            Close
+          <h2>Your Cart</h2>
+          <span className="drawer-count">{s.count} {s.count === 1 ? "Item" : "Items"}</span>
+          <button type="button" onClick={close} aria-label="Close cart" className="drawer-x">
+            <CloseIcon />
           </button>
         </div>
         <div className="drawer-body">
           {s.bag.length === 0 ? (
-            <p>You have no items in your shopping bag.</p>
+            <p className="drawer-empty">Your cart is empty</p>
           ) : (
             <ul className="bag-lines">
               {s.bag.map((l) => {
@@ -98,7 +100,7 @@ export default function BagDrawer() {
               </button>
             </>
           )}
-          <button type="button" className={`btn ${s.bag.length ? "btn--white" : "btn--black"}`} onClick={close}>
+          <button type="button" className="btn btn--white" onClick={close}>
             Continue Shopping
           </button>
         </div>

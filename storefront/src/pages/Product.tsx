@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ProductGrid from "../components/ProductGrid";
 import { CATEGORY_LABEL, familyOf, formatPrice, getProduct, products, FREE_SHIPPING_USD } from "../data";
@@ -10,17 +10,15 @@ const SIZE_GUIDE: Record<string, { head: string[]; rows: string[][] }> = {
   waist: { head: ["Size", "Waist (in)", "Inseam (in)"], rows: [["28", "28.5", "32"], ["30", "30.5", "32"], ["32", "32.5", "32"], ["34", "34.5", "32"], ["36", "36.5", "32"], ["38", "38.5", "32"]] },
 };
 
-function Toggle({ label, children, defaultOpen = false }: { label: string; children: React.ReactNode; defaultOpen?: boolean }) {
-  const [open, setOpen] = useState(defaultOpen);
+function Accordion({ label, children }: { label: string; children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
   return (
-    <div className="pdp-toggle">
+    <div className="acc">
       <button type="button" aria-expanded={open} onClick={() => setOpen(!open)}>
-        {label}
-        <svg className={`chev${open ? " is-open-down" : ""}`} width="9" height="6" viewBox="0 0 9 6" aria-hidden="true">
-          {defaultOpen ? <path d="M1 1l3.5 3.5L8 1" fill="none" stroke="currentColor" /> : <path d="M2 0.5l3.5 2.5L2 5.5" fill="none" stroke="currentColor" />}
-        </svg>
+        <span>{label}</span>
+        <span aria-hidden="true">{open ? "–" : ">"}</span>
       </button>
-      {open && <div className="pdp-toggle-body">{children}</div>}
+      {open && <div className="acc-body">{children}</div>}
     </div>
   );
 }
@@ -30,125 +28,103 @@ export default function Product() {
   const p = getProduct(handle);
   const { currency, add, setBagOpen } = useStore();
   const [size, setSize] = useState<string | null>(null);
-  const [error, setError] = useState(false);
   const [slide, setSlide] = useState(0);
-  const track = useRef<HTMLDivElement>(null);
+  const [added, setAdded] = useState(false);
 
   useEffect(() => {
     setSize(p && p.sizes.length === 1 && !p.soldOut.length ? p.sizes[0] : null);
-    setError(false);
     setSlide(0);
-    track.current?.scrollTo({ left: 0 });
+    setAdded(false);
     window.scrollTo(0, 0);
-    if (p) document.title = `${p.title} - ${p.colour} | 87TH CLUB`;
+    if (p) document.title = `${p.title} [${p.colour}] | 87TH CLUB`;
   }, [handle]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!p) return <NotFound />;
   const family = familyOf(p);
   const base = collection ? `/collections/${collection}` : "";
-  const related = products.filter((q) => q.category === p.category && q.family !== p.family).concat(products.filter((q) => q.family !== p.family && q.category !== p.category && q.newArrival)).slice(0, 4);
+  const related = products.filter((q) => q.category === p.category && q.family !== p.family).concat(products.filter((q) => q.family !== p.family && q.category !== p.category && q.newArrival)).slice(0, 3);
   const guide = p.sizes[0] === "28" ? SIZE_GUIDE.waist : p.sizes.length > 1 ? SIZE_GUIDE.tops : null;
   const allOut = p.soldOut.length === p.sizes.length;
-
-  const onAdd = () => {
-    if (!size) {
-      setError(true);
-      return;
-    }
-    add(p.handle, size);
-    setBagOpen(true);
-  };
+  const n = p.images.length;
 
   return (
     <main className="main pdp" id="main">
       <div className="pdp-wrap">
         <div className="pdp-gallery">
-          <div
-            className="pdp-track"
-            ref={track}
-            onScroll={(e) => {
-              const el = e.currentTarget;
-              setSlide(Math.round(el.scrollLeft / el.clientWidth));
-            }}
-          >
+          <div className="pdp-stage">
             {p.images.map((src, i) => (
-              <div className="pdp-slide" key={src}>
-                <img src={src} alt={`${p.title} in ${p.colour}${i ? ", alternate view" : ""}`} loading={i === 0 ? "eager" : "lazy"} width={960} height={1200} />
-              </div>
+              <img key={src} src={src} alt={`${p.title} in ${p.colour}${i ? `, view ${i + 1}` : ""}`} className={i === slide ? "is-active" : ""} loading={i === 0 ? "eager" : "lazy"} />
             ))}
+            {n > 1 && (
+              <>
+                <button type="button" className="pdp-arrow pdp-arrow--prev" aria-label="Previous image" onClick={() => setSlide((slide - 1 + n) % n)}>‹</button>
+                <button type="button" className="pdp-arrow pdp-arrow--next" aria-label="Next image" onClick={() => setSlide((slide + 1) % n)}>›</button>
+              </>
+            )}
           </div>
-          <div className="pdp-dots mobile-only" aria-hidden="true">
-            {slide + 1} / {p.images.length}
-          </div>
+          {n > 1 && (
+            <div className="pdp-dots">
+              {p.images.map((src, i) => (
+                <button key={src} type="button" aria-label={`Image ${i + 1}`} className={i === slide ? "is-active" : ""} onClick={() => setSlide(i)} />
+              ))}
+            </div>
+          )}
         </div>
         <div className="pdp-info">
-          <div className="pdp-sticky">
-            <h1>{p.title}</h1>
-            <p className="pdp-price">{formatPrice(p.price, currency)}</p>
-            <p className="grey">{p.colour}</p>
-            <div className="pdp-sizes" role="radiogroup" aria-label="Size">
-              {p.sizes.map((s) => {
-                const out = p.soldOut.includes(s);
-                return (
-                  <button
-                    key={s}
-                    type="button"
-                    role="radio"
-                    aria-checked={size === s}
-                    className={`${size === s ? "is-selected" : ""}${out ? " is-out" : ""}`}
-                    disabled={out}
-                    onClick={() => {
-                      setSize(s);
-                      setError(false);
-                    }}
-                  >
-                    {s}
-                  </button>
-                );
-              })}
-            </div>
-            {family.length > 1 && (
-              <div className="pdp-colours" aria-label="Colour">
-                {family.map((f) => (
-                  <Link key={f.handle} to={`${base}/products/${f.handle}`} className={f.handle === p.handle ? "is-selected" : ""} title={f.colour} aria-label={`${f.title} in ${f.colour}`}>
-                    <img src={f.images[0]} alt="" loading="lazy" />
-                  </Link>
-                ))}
-              </div>
-            )}
-            <button type="button" className="btn btn--black pdp-add" onClick={onAdd} disabled={allOut}>
-              {allOut ? "Sold Out" : error ? "Please Select A Size" : "Add To Bag"}
-            </button>
-            <Toggle label="Product Details" defaultOpen>
+          <h1>{p.title} [{p.colour}]</h1>
+          <p className="pdp-price">{formatPrice(p.price, currency)}</p>
+          <p className="pdp-label">Size</p>
+          <div className="pdp-sizes" role="radiogroup" aria-label="Size">
+            {p.sizes.map((s) => {
+              const out = p.soldOut.includes(s);
+              return (
+                <button key={s} type="button" role="radio" aria-checked={size === s} className={`${size === s ? "is-selected" : ""}${out ? " is-out" : ""}`} disabled={out} onClick={() => { setSize(s); setAdded(false); }}>
+                  {s}
+                </button>
+              );
+            })}
+          </div>
+          <p className="pdp-label">Colour</p>
+          <div className="pdp-colours">
+            {family.map((f) => (
+              <Link key={f.handle} to={`${base}/products/${f.handle}`} className={f.handle === p.handle ? "is-selected" : ""} title={f.colour} aria-label={`${f.title} in ${f.colour}`}>
+                <img src={f.images[0]} alt="" loading="lazy" />
+              </Link>
+            ))}
+          </div>
+          <button
+            type="button"
+            className="pdp-add"
+            disabled={allOut || !size}
+            onClick={() => {
+              if (!size) return;
+              add(p.handle, size);
+              setAdded(true);
+              setBagOpen(true);
+            }}
+          >
+            {allOut ? "Sold Out" : !size ? "Select Size" : added ? "Added — Add Another" : "Add To Cart"}
+          </button>
+          <div className="pdp-accs">
+            <Accordion label="Details">
               <p className="pdp-desc">{p.description}</p>
               <ul className="pdp-details">
-                {p.details.map((d) => (
-                  <li key={d}>{d}</li>
-                ))}
+                {p.details.map((d) => <li key={d}>{d}</li>)}
                 <li>Category: {CATEGORY_LABEL[p.category]}</li>
               </ul>
-            </Toggle>
+            </Accordion>
             {guide && (
-              <Toggle label="Size Guide">
+              <Accordion label="Size Guide">
                 <table className="size-table">
-                  <thead>
-                    <tr>{guide.head.map((h) => <th key={h}>{h}</th>)}</tr>
-                  </thead>
-                  <tbody>
-                    {guide.rows.map((r) => (
-                      <tr key={r[0]}>{r.map((c, i) => <td key={i}>{c}</td>)}</tr>
-                    ))}
-                  </tbody>
+                  <thead><tr>{guide.head.map((h) => <th key={h}>{h}</th>)}</tr></thead>
+                  <tbody>{guide.rows.map((r) => <tr key={r[0]}>{r.map((c, i) => <td key={i}>{c}</td>)}</tr>)}</tbody>
                 </table>
-              </Toggle>
+              </Accordion>
             )}
-            <Toggle label="Shipping & Returns">
-              <p>Standard shipping 3-7 business days. Express shipping 1-3 business days.</p>
-              <p>Unworn items may be returned within 30 days of delivery for a full refund.</p>
-            </Toggle>
-            <p className="pdp-note">
-              Free standard shipping for orders over {formatPrice(FREE_SHIPPING_USD, currency)}. Exclusions apply.
-            </p>
+            <Accordion label="Shipping Policy">
+              <p>Free standard shipping on orders over {formatPrice(FREE_SHIPPING_USD, currency)}. Standard 3-7 business days, express 1-3 business days.</p>
+              <p>Unworn items may be returned within 30 days of delivery.</p>
+            </Accordion>
           </div>
         </div>
       </div>

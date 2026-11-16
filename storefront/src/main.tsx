@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
 import App from "./App";
+import Gate from "./components/Gate";
 import { StoreProvider } from "./store";
 import "./styles.css";
 
@@ -10,10 +11,12 @@ const Router = import.meta.env.VITE_STATIC ? MemoryRouter : BrowserRouter;
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Router>
-      <StoreProvider>
-        <App />
-      </StoreProvider>
-    </Router>
+    <Gate>
+      <Router>
+        <StoreProvider>
+          <App />
+        </StoreProvider>
+      </Router>
+    </Gate>
   </React.StrictMode>
 );

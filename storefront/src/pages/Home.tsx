@@ -1,31 +1,6 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { asset } from "../data";
+import Collection from "./Collection";
 
-const BLOCKS = [
-  { to: "/collections/new-arrivals", desktop: asset("/images/editorial/campaign-01.jpg"), mobile: asset("/images/editorial/campaign-01.jpg"), label: "New Arrivals", wide: true },
-  { to: "/collections/tees", desktop: asset("/images/editorial/campaign-02.jpg"), mobile: asset("/images/editorial/campaign-02.jpg"), label: "Tees" },
-  { to: "/collections/outerwear", desktop: asset("/images/editorial/campaign-03.jpg"), mobile: asset("/images/editorial/campaign-03.jpg"), label: "Outerwear" },
-  { to: "/collections/sweats", desktop: asset("/images/editorial/campaign-04.jpg"), mobile: asset("/images/editorial/campaign-04.jpg"), label: "Sweats" },
-];
-
+/** Like the drop-style reference, the homepage is the shop itself: the current drop. */
 export default function Home() {
-  useEffect(() => {
-    document.title = "87TH CLUB";
-  }, []);
-  return (
-    <main className="home" id="main">
-      <h1 className="visually-hidden">87TH CLUB</h1>
-      {BLOCKS.map((b, i) => (
-        <section className={`feature${b.wide ? " feature--wide" : ""}`} key={b.to}>
-          <Link to={b.to} className="feature-link" aria-label={b.label}>
-            <picture>
-              <source media="(max-width: 1099px)" srcSet={b.mobile} />
-              <img src={b.desktop} alt={`${b.label} campaign`} loading={i === 0 ? "eager" : "lazy"} fetchPriority={i === 0 ? "high" : "auto"} />
-            </picture>
-          </Link>
-        </section>
-      ))}
-    </main>
-  );
+  return <Collection handle="new-arrivals" />;
 }

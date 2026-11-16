@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { CATEGORY_LABEL, type Product } from "../data";
 import { useStore } from "../store";
+import { CloseIcon } from "./Icons";
 
 export type Filters = { size: string[]; category: string[]; colour: string[]; availability: string[] };
 export const EMPTY: Filters = { size: [], category: [], colour: [], availability: [] };
@@ -67,9 +68,7 @@ export default function FilterPanel({ items, applied, onApply }: { items: Produc
       <div className="filter-overlay" onClick={() => setFilterOpen(false)} />
       <div className="filter-panel" role="dialog" aria-modal="true" aria-label="Filter products">
         <button type="button" className="filter-close" aria-label="Close filters" onClick={() => setFilterOpen(false)}>
-          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-            <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="1.4" />
-          </svg>
+          <CloseIcon />
         </button>
         <div className="filter-scroll">
           {Group({ k: "size", title: "Filter Size", options: sizes.map((s) => ({ v: s, label: s })) })}

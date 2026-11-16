@@ -1,15 +1,16 @@
 import { useMemo } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import FilterPanel, { applyFilters, countFilters, type Filters } from "../components/FilterPanel";
-import ProductGrid, { type Callout } from "../components/ProductGrid";
-import { callouts as EDITORIAL, categoryImages, collectionProducts } from "../data";
+import ProductGrid from "../components/ProductGrid";
+import { collectionProducts } from "../data";
 import { useStore } from "../store";
 import NotFound from "./NotFound";
 
 const KEYS: (keyof Filters)[] = ["size", "category", "colour", "availability"];
 
-export default function Collection() {
-  const { handle = "" } = useParams();
+export default function Collection({ handle: fixed }: { handle?: string }) {
+  const params0 = useParams();
+  const handle = fixed ?? params0.handle ?? "";
   const [params, setParams] = useSearchParams();
   const { setFilterOpen } = useStore();
   const data = collectionProducts(handle);
@@ -22,13 +23,6 @@ export default function Collection() {
   const items = applyFilters(data.items, applied);
   const active = countFilters(applied);
 
-  const callouts: Callout[] = (() => {
-    const editorial = EDITORIAL.map((f, i) => ({ src: f, to: "/pages/chapters", alt: `Campaign image ${i + 1}` }));
-    if (handle === "new-arrivals" || handle === "all") return editorial;
-    const cat = categoryImages[handle];
-    return cat ? [{ src: cat, to: "/pages/chapters", alt: `${data.title} campaign image` }, ...editorial.slice(0, 2)] : editorial;
-  })();
-
   const onApply = (f: Filters) => {
     const next = new URLSearchParams();
     KEYS.forEach((k) => f[k].length && next.set(k, f[k].join(",")));
@@ -38,7 +32,7 @@ export default function Collection() {
 
   return (
     <main className="main collection" id="main">
-      <h1 className="visually-hidden">{data.title}</h1>
+      <h1 className="coll-title">{data.title}</h1>
       {active > 0 && (
         <div className="active-filters">
           <span>
@@ -60,7 +54,7 @@ export default function Collection() {
         </div>
       )}
       {items.length ? (
-        <ProductGrid items={items} callouts={active ? [] : callouts} base={`/collections/${handle}`} />
+        <ProductGrid items={items} base={`/collections/${handle}`} />
       ) : (
         <div className="empty">
           <p>No products match the selected filters.</p>

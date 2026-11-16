@@ -37,16 +37,14 @@ export default function App() {
   useEffect(() => s.setFilterOpen(false), [search]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className={`app${pathname === "/" ? " is-home" : ""}`}>
+    <div className="app">
       <a href="#main" className="skip">Skip to content</a>
       <Header />
       <aside className="sidebar desktop-only">
         <NavList />
       </aside>
-      <p className="copyright desktop-only">© 2026 87th Club</p>
       <div className={`mobile-menu${s.menuOpen ? " is-open" : ""}`} aria-hidden={!s.menuOpen}>
-        <NavList mobile onNavigate={() => s.setMenuOpen(false)} />
-        <p className="copyright">© 2026 87th Club</p>
+        <NavList onNavigate={() => s.setMenuOpen(false)} />
       </div>
       <CollectionTitle />
       {s.searchOpen ? (
@@ -64,6 +62,7 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       )}
+      <footer className="site-foot">Copyright © 2026, 87TH CLUB.</footer>
       <BagDrawer />
     </div>
   );

@@ -1,8 +1,18 @@
 # 87TH CLUB storefront prototype
 
-An internal design prototype of a streetwear storefront for the fictional brand **87TH CLUB**. It reproduces the
-observable layout, spacing, typography and shopping interactions of a minimal editorial reference storefront. The
-branding, product catalogue and copy are original, and the photography is licensed (see `ASSET_MANIFEST.md`).
+An internal design prototype of a drop-style streetwear storefront for **87TH CLUB**.
+
+**Current theme:** plain black background, red text and rules (`--red: #ff2a2a`, top bar `#a20000`), Helvetica
+throughout. The layout is a fixed left sidebar with the logo and categories, search, cart and checkout at the top
+right, and a 3-column grid of square product images with centred titles. The cart slides in from the left.
+
+**Password gate:** the store opens behind a lock screen with a drop countdown (`src/components/Gate.tsx`). Set the
+password with `VITE_GATE_PASSWORD` (default `87THCLUB`) and the drop time with `VITE_DROP_DATE` (an ISO date) at
+build time. The sidebar's "Lock store" button re-locks it. This is a client-side lock that hides the UI; it is not
+real security, because the password ships in the JavaScript bundle. For real access control, use the hosting
+platform's password protection or a server check.
+
+The section below records the original layout study from the first version.
 
 It is a self-contained Vite + React + TypeScript app. It is independent from the brand-OS app at the repository root.
 
