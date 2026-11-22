@@ -1,74 +1,80 @@
-// Private-first local authentication with a REAL backend session.
-// On sign-in we also create a server session (JWT) so the app can sync
-// project state to the API. If the API is unreachable we stay in local
-// mode; everything still works, and state syncs out when it recovers.
-import { apiSignIn, getToken, setToken, probe } from "./api";
+import 'server-only';
+import { SignJWT, jwtVerify } from 'jose';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
+import bcrypt from 'bcryptjs';
+import { prisma } from './db';
 
-const USER_KEY = "eightyseventhclub_user";
+export const ADMIN_COOKIE = 'club_admin';
+const MAX_AGE = 60 * 60 * 12; // 12h
 
-export interface User {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-  createdAt: string;
+function secret() {
+  const s = process.env.AUTH_SECRET;
+  if (!s || s.length < 32) throw new Error('AUTH_SECRET must be set (32+ chars)');
+  return new TextEncoder().encode(s);
 }
 
-function read(): User | null {
+export async function createAdminSession(adminId: string) {
+  const token = await new SignJWT({ sub: adminId, typ: 'admin' })
+    .setProtectedHeader({ alg: 'HS256' })
+    .setIssuedAt()
+    .setExpirationTime(`${MAX_AGE}s`)
+    .sign(secret());
+  (await cookies()).set(ADMIN_COOKIE, token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    path: '/',
+    maxAge: MAX_AGE,
+  });
+}
+
+export async function destroyAdminSession() {
+  (await cookies()).delete(ADMIN_COOKIE);
+}
+
+export async function verifyAdminToken(token: string | undefined) {
+  if (!token) return null;
   try {
-    const raw = localStorage.getItem(USER_KEY);
-    return raw ? (JSON.parse(raw) as User) : null;
+    const { payload } = await jwtVerify(token, secret());
+    if (payload.typ !== 'admin' || typeof payload.sub !== 'string') return null;
+    return payload.sub;
   } catch {
     return null;
   }
 }
 
-let user: User | null = read();
-const listeners = new Set<() => void>();
-
-export function getUser(): User | null {
-  return user;
-}
-function notify() {
-  listeners.forEach((l) => l());
-}
-export function subscribeUser(cb: () => void): () => void {
-  listeners.add(cb);
-  return () => listeners.delete(cb);
+/** Returns the signed-in admin or null. Always re-checks the database. */
+export async function getAdmin() {
+  const id = await verifyAdminToken((await cookies()).get(ADMIN_COOKIE)?.value);
+  if (!id) return null;
+  return prisma.adminUser.findUnique({ where: { id }, select: { id: true, email: true, name: true, role: true } });
 }
 
-export async function signIn(name: string, email: string): Promise<{ backend: boolean }> {
-  const email2 = email || name.toLowerCase().replace(/\s+/g, ".") + "@mannasdungeons.club";
-  // Local session (always)
-  user = {
-    id: "usr_local",
-    name,
-    email: email2,
-    role: "Founder / Brand Owner",
-    createdAt: new Date().toISOString(),
-  };
-  try { localStorage.setItem(USER_KEY, JSON.stringify(user)); } catch { /* ignore */ }
-  notify();
-
-  // Best-effort real backend session.
-  let backend = false;
-  try {
-    probe();
-    const r = await apiSignIn(name, email2);
-    if (r?.token) { setToken(r.token); backend = true; }
-  } catch {
-    backend = false;
-  }
-  return { backend };
+/** Use at the top of every admin page and server action. */
+export async function requireAdmin() {
+  const admin = await getAdmin();
+  if (!admin) redirect('/admin/login');
+  return admin;
 }
 
-export function signOut() {
-  user = null;
-  try { localStorage.removeItem(USER_KEY); } catch { /* ignore */ }
-  setToken(null);
-  notify();
+export async function hashPassword(pw: string) {
+  return bcrypt.hash(pw, 12);
+}
+export async function checkPassword(pw: string, hash: string) {
+  return bcrypt.compare(pw, hash);
 }
 
-export function useUser() {
-  return { user, signIn, signOut, subscribeUser };
+// Simple in-memory login throttle (per process). Use a shared store if you run several instances.
+const attempts = new Map<string, { n: number; until: number }>();
+export function throttle(key: string): boolean {
+  const now = Date.now();
+  const a = attempts.get(key);
+  if (a && a.until > now && a.n >= 5) return false;
+  if (!a || a.until <= now) attempts.set(key, { n: 1, until: now + 15 * 60_000 });
+  else a.n++;
+  return true;
+}
+export function clearThrottle(key: string) {
+  attempts.delete(key);
 }

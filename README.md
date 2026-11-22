@@ -1,158 +1,122 @@
-# Mannas Dungeons — Brand Advancement OS
+# THE 87TH CLUB — Store
 
-A real, functional, private-first, AI-native creative operating system for a
-clothing/fashion brand. The product's entire identity is **The Eight Outcomes**;
-everything else exists to complete those outcomes faster and more creatively.
+Full-stack streetwear store for THE 87TH CLUB: storefront, cart, Paystack checkout (cards + M-Pesa),
+order management, inventory, a protected admin dashboard, and a repeatable product importer.
 
-> "The user should think about the brand, not the software."
+**Stack:** Next.js 15 (App Router, TypeScript) · Tailwind CSS · PostgreSQL · Prisma · Paystack · SMTP email (Nodemailer) · Sharp image pipeline · local disk or S3-compatible image storage.
+
+> The earlier "Brand Advancement OS" app that used to live in this repository is preserved, unchanged, in [`brand-os/`](brand-os/).
 
 ---
 
-## The Eight Outcomes
+## Brand system (from the Canva Brand Kit and Brand Identity Book)
 
-| # | Outcome |
-|---|---------|
-| 01 | Clear Brand Identity |
-| 02 | Distinctive Brand World |
-| 03 | Stronger Customer Experience |
-| 04 | Conversion-Ready Sales System |
-| 05 | Repeatable Content Engine |
-| 06 | Campaign System |
-| 07 | Customer Acquisition Loop |
-| 08 | Measurable Growth System |
+| Token | Value | Source |
+|---|---|---|
+| Signal Red | `#E31B23` (Pantone 186 C), accent only | Brand Kit Vol. 01 + Identity Book |
+| Deep Black | `#0A0A0A`, foundation | Brand Kit |
+| Off White | `#F5F5F2`, text on black | Brand Kit |
+| Club Sand | `#E8C68E`, panels | Brand Kit |
+| Mascot | Afro-portrait icon mark, original Canva artwork (`public/brand/`) | Canva asset "Red and Black Bold Streetwear Logo – 1" |
 
-The user journey is sequential:
+The Identity Book also mentions a `#FF3231` "signature red" in one paragraph. The newer Brand Kit and the book's own colour page both specify **#E31B23**, so that value is used.
 
-`LOGIN → NEW PROJECT → ADD BRAND MATERIALS → AI ANALYSIS → OUTCOME 01 … OUTCOME 08 → TEST → FINAL BRAND ADVANCEMENT PACKAGE`
+**Type:** Helvetica Neue Condensed is the primary face. It is used wherever the visitor's device has it (macOS and iOS ship Helvetica Neue Condensed Bold and Black). Helvetica Neue is a licensed font and isn't bundled here. To serve it to every device, put your licensed `.woff2` files in `public/fonts/` and un-comment the `url()` lines in `src/app/globals.css`. Until then, other devices fall back to Arial Narrow and then **Oswald** (open source, self-hosted): a close condensed substitute, *not* Helvetica Neue. GFS Didot is used for short editorial lines ("Life is art."), as the brand book specifies.
 
-## What's implemented
+Copy on the homepage and The Club page comes verbatim from the Identity Book (philosophy, values, personality, Culture in Motion, taglines).
 
-Everything is a **real** feature backed by a **real backend**. The frontend talks
-to a Node/Express REST API (a Vite dev proxy forwards `/api` and `/files`), which
-persists to **SQLite by default** and switches to **Supabase Postgres (RLS +
-pgvector)** via config. Nothing is decorative, and nothing is faked.
+---
 
-### Backend (Node/Express — `server/`)
+## Run locally
 
-- **Real REST API** on port `8787` with a repository abstraction (`db.js`):
-  picks `sqlite` (better-sqlite3, `data/87th.sqlite`) or `supabase`
-  (`DRIVER=supabase` + Supabase URL/keys). Same repo interface, two drivers.
-- **Private JWT auth** — no public registration, no user list. Sign-in returns a
-  signed JWT (with `iat` + random `jti`) that is also persisted as a session row
-  so both drivers validate cleanly. Google OAuth (`/api/auth/google`) does a real
-  code→token→profile exchange and returns the honest reason if unconfigured.
-- **Server-side AI router** (`ai.js`) — real HTTP calls to OpenAI / Anthropic /
-  Gemini when a key is present; logs provider + model + tokens + cost + success to
-  `ai_runs`; returns an honest "no key configured" text when it isn't — never a
-  fabricated answer.
-- **Server-side website analysis** (`analyze.js`) — real fetch (8s abort) + scrape:
-  verifies H1, CTA, reviews, size guide, shipping/returns, FAQ, newsletter, word
-  count; `buildFindings()` emits evidence-labeled
-  `PROBLEM → EVIDENCE → SEVERITY → WHY → RECOMMENDATION → ALTERNATIVES → VISUAL
-  SOLUTION → TEST` rows (outcome 03).
-- **Real uploads** — `multer` disk storage under `data/uploads/`, served via
-  `/files/*`, size-limited, never reading secrets.
-- **Export downloads** — project JSON and analytics CSV served as attachments.
-- **Client email send** — requires real Gmail OAuth config; without it returns the
-  honest "won't fake a send — copy the message" error.
-- **Integrations Hub** — `/connect` and `/test` reflect the real availability of
-  OpenAI, Claude, Gemini, Arena AI, Shopify, Stripe, Gmail, Drive, GA4, Figma,
-  Canva, Adobe, Higgsfield, DaVinci Resolve, Jitter, Vercel, Netlify, Playwright.
-- **`seed.js`** seeds the integration definitions on first run; `npm run seed`.
-
-### Frontend (Vite + React + TS)
-
-- **Private sign-in** → the backend; offline fallback intact.
-- **Project intake, AI analysis, framework/outcome tracker, Cinema Studio,
-  Design Studio (canvas + SVG export), Template Library, Reference Intelligence,
-  Asset Library, Brand Brain + Decision Log, Mannas AI, Integrations Hub, Analytics
-  + Experiment Engine, Campaigns, Calendar, Client Emails (approve-before-send),
-  Export Center & Brand Advancement Book** — all wired to the API via `src/lib/api.ts`,
-  with project save debounced through `src/lib/store.ts` sync and
-  `initFromServer()` merge on boot, and an offline fallback that keeps working.
-- **Street-culture zine design system** — heavy condensed display type (#FF3231
-  brand red on black structure over a warm paper ground), crisp print panels,
-  editorial typography, and an **Instagram-style bottom outcome dock** that pins
-  the eight outcomes to the bottom of the screen (with a per-outcome progress
-  tick), replacing the old three-line menu. All other tools live behind a clean
-  top-right grid button that opens a bottom-sheet tool drawer.
-
-## Honesty rules enforced
-
-- No fake AI responses, analytics, connections, scans, exports or uploads.
-- No fabricated business-impact claims — only real connected/logged metrics.
-- No user-facing credits system; provider/model usage is monitored privately.
-- API keys, OAuth secrets and role credentials never touch the browser.
-
-## Running
+Requirements: Node 20+, PostgreSQL 14+.
 
 ```bash
-cd 87th-club
 npm install
-
-# 1) start the API (listens on :8787)
-npm run server        # or: node server/index.js
-
-# 2) seed the integration definitions (first run)
-npm run seed
-
-# 3) start the frontend dev server (proxies /api + /files → :8787)
-npm run dev           # http://localhost:5173 (auto-falls to 5174)
-
-# production
-npm run build         # → dist/
-
-# typecheck
-npx tsc --noEmit
 ```
 
-## Configuration (`server/.env` — copy from `server/.env.example`)
-
-| Var | Purpose |
-|-----|---------|
-| `PORT` | API port (default `8787`) |
-| `JWT_SECRET` | long random string for signing auth tokens |
-| `DRIVER` | `sqlite` (default) or `supabase` |
-| `OPENAI_API_KEY` / `ANTHROPIC_API_KEY` / `GEMINI_API_KEY` / `MISTRAL_API_KEY` | enable the real AI router providers |
-| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` / `GOOGLE_REDIRECT_URI` | real Google OAuth — login + Gmail send. `GOOGLE_REDIRECT_URI` must be the full callback URL, e.g. `http://localhost:5173/api/auth/google/callback`, and be listed as an Authorized redirect URI in Google Cloud Console |
-| `APP_ORIGIN` | origin the app returns to after Google sign-in (default `http://localhost:5173`) |
-| `SUPABASE_URL` / `SUPABASE_ANON_KEY` / `SUPABASE_SERVICE_ROLE_KEY` | Postgres/RLS driver (`DRIVER=supabase`) |
-
-### API surface (all under `/api`, JWT-protected except `health`)
-
-```
-health, auth/signin, auth/google/config, auth/google/start, auth/google/callback,
-auth/google, auth/me, auth/signout, bootstrap,
-projects, projects/:id, projects/:id/state, projects/:id/analyze,
-ai/ask, ai/runs, integrations, integrations/:id/connect, integrations/:id/test,
-upload, export/:id/json, export/:id/csv, email/send
+```bash
+cp .env.example .env    # then set DATABASE_URL and AUTH_SECRET at minimum
 ```
 
-## Supabase
+```bash
+npx prisma migrate deploy
+```
 
-Apply `supabase/schema.sql` to a Supabase project: `public.users`, `public.projects`
-(JSONB `docs`), `integrations`, `integration_tokens`, `ai_runs`, `activity_logs`,
-`assets`, `exports`, Row-Level Security policies, a `public` storage bucket(s)
-for assets, and the `vector` extension for embeddings. Set `DRIVER=supabase` and
-the three Supabase env vars to use it — the same repo interface serves both.
+```bash
+npm run admin:create -- you@example.com "a-long-password" "Your Name"
+```
+
+```bash
+npm run dev             # http://localhost:3000
+```
+
+Production:
+
+```bash
+npm run build
+```
+
+```bash
+npm start
+```
+
+## Admin dashboard
+
+Go to **`/admin`** and sign in with the account created by `npm run admin:create`. There is no public sign-up.
+Admin pages and `/api/admin/*` are protected by middleware *and* by a database-checked session in every page and server action.
+
+Before you can take orders:
+1. **Delivery options**: add at least one (Admin → Delivery options). Checkout stays disabled until one exists.
+2. **Paystack**: set `PAYSTACK_SECRET_KEY`, and set the webhook URL `https://<domain>/api/webhooks/paystack` in Paystack.
+3. **Products**: import a spreadsheet (Admin → Import products, or the CLI below) or add them by hand, add images, then publish.
+4. **Settings**: support email, socials, shipping/returns text, FAQ, and an optional campaign hero photo.
+
+The Overview page shows a setup checklist until all of these are done.
+
+## Importing products
+
+```bash
+npm run import:products -- ./catalogue.csv --dry-run
+```
+
+```bash
+npm run import:products -- "https://docs.google.com/spreadsheets/d/<id>/edit#gid=<gid>" --publish
+```
+
+- Header names are matched flexibly (Name / Price / Original price / Category / Collection / Size / Colour / Stock / SKU / Image / Image 2 / Description …).
+- Prices are parsed exactly as written. Missing or ambiguous prices, sizes, stock or images stay **missing**; they are never invented.
+- Google Drive image links are downloaded (the files must be shared as "anyone with the link"), converted to optimised WebP renditions, and attached to their product.
+- Re-running an import updates the same products instead of duplicating them, and existing images are not downloaded twice.
+- Products without a price or image are imported as **drafts**. A Markdown and JSON report is written to `import-reports/` and kept in Admin → Import products.
+
+## Payments
+
+Paystack (Kenya: cards, M-Pesa, Airtel Money, bank; Nigeria, Ghana and South Africa are also supported) through Paystack's hosted page, so card details never touch this server.
+
+- When the order is created, stock is **reserved** (an atomic conditional decrement, so nothing is oversold) and held for `RESERVATION_MINUTES`.
+- An order is marked paid **only** after server-side verification (`GET /transaction/verify/:ref`). Amount and currency must match.
+- The webhook (`charge.success`) checks the HMAC-SHA512 signature and then re-verifies with the API. Processing is idempotent.
+- Unpaid orders are checked with Paystack once more, then cancelled and their stock released.
+- Customers can retry a failed or abandoned payment from their order page.
+
+## Tests
+
+```bash
+npm run build && npm run test:e2e
+```
+
+Runs the whole customer and admin journey in a real browser against a **separate throwaway database** (`club87_test`), using labelled TEST FIXTURE products and a local mock of the Paystack API. It covers: import, filters, search, PDP, size/stock rules, the bag, checkout validation, payment success, failure and retry, webhook signature, concurrent-checkout oversell protection, reservation expiry, admin auth, tracking, product editing, image upload, scheduled drops, and mobile layout.
 
 ## Project layout
 
 ```
-server/       index.js (Express API), db.js (repo: sqlite|supabase),
-              ai.js (router), analyze.js (scanner), seed.js, .env.example
-supabase/     schema.sql (DDL + RLS + storage + pgvector)
-src/
-  lib/        types, framework (config), api (client), auth, store (sync),
-              db (local fallback), analysis, ai, gen, design, produce,
-              export, projects, icons
-  components/ ui (Modal, Toasts, Seg, Tag, Progress, Empty)
-  views/      Login, Dashboard, Onboarding, Analysis, Framework, CinemaStudio,
-              DesignStudio, Templates, References, Assets, BrandBrain, AIChat,
-              Integrations, Analytics, Campaigns, Calendar, Email, Export,
-              Book, Settings
+prisma/schema.prisma          database schema (+ migrations)
+src/app/(store)/              storefront pages
+src/app/admin/                admin dashboard + server actions
+src/app/api/                  cart, checkout, search, newsletter, contact, Paystack webhook
+src/lib/                      catalog, cart, orders/payments, importer, images, storage, auth
+scripts/                      import, create-admin, e2e test
+public/brand/                 mascot + OG image (exported from Canva)
+brand-os/                     previous app, preserved
 ```
-
-Built with the vision that **ONE WORKSPACE · ONE PROJECT · ONE BRAND BRAIN ·
-ONE FRAMEWORK · MANY CAPABILITIES**, orchestrating specialist tools rather than
-replacing them.

@@ -1,0 +1,393 @@
+// THE 87TH CLUB — commerce schema (PostgreSQL)
+// Money is stored as integer minor units (e.g. cents) in the store currency.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ProductStatus {
+  DRAFT
+  ACTIVE
+  ARCHIVED
+}
+
+enum OrderStatus {
+  PENDING_PAYMENT
+  PAID
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCESS
+  FAILED
+  ABANDONED
+  REFUNDED
+}
+
+enum FulfillmentStatus {
+  UNFULFILLED
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  RETURNED
+}
+
+enum DiscountType {
+  PERCENTAGE
+  FIXED_AMOUNT
+}
+
+enum AdminRole {
+  OWNER
+  STAFF
+}
+
+model AdminUser {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  name         String?
+  passwordHash String
+  role         AdminRole @default(OWNER)
+  lastLoginAt  DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  sortOrder   Int       @default(0)
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Collection {
+  id          String              @id @default(cuid())
+  title       String
+  slug        String              @unique
+  description String?
+  imageUrl    String?
+  isVisible   Boolean             @default(true)
+  /// A drop is a collection with a scheduled launch time. Products are hidden from
+  /// the storefront until `launchAt`, and the homepage counts down to it.
+  isDrop      Boolean             @default(false)
+  launchAt    DateTime?
+  sortOrder   Int                 @default(0)
+  products    CollectionProduct[]
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+}
+
+model CollectionProduct {
+  collectionId String
+  productId    String
+  position     Int        @default(0)
+  collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  product      Product    @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@id([collectionId, productId])
+  @@index([productId])
+}
+
+model Product {
+  id                String              @id @default(cuid())
+  title             String
+  slug              String              @unique
+  description       String?
+  details           String?
+  /// Price in minor units. Null = missing in the source data (product cannot be sold until set).
+  price             Int?
+  compareAtPrice    Int?
+  status            ProductStatus       @default(DRAFT)
+  featured          Boolean             @default(false)
+  newArrival        Boolean             @default(false)
+  sku               String?
+  categoryId        String?
+  category          Category?           @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  /// Stable key used by the importer so re-running an import updates instead of duplicating.
+  importKey         String?             @unique
+  /// Extra attributes from the source data, preserved verbatim.
+  attributes        Json?
+  seoTitle          String?
+  seoDescription    String?
+  images            ProductImage[]
+  variants          ProductVariant[]
+  collections       CollectionProduct[]
+  orderItems        OrderItem[]
+  publishedAt       DateTime?
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+
+  @@index([status, createdAt])
+  @@index([categoryId])
+}
+
+model ProductImage {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  /// Storage key of the optimised master (e.g. products/abc/1600.webp)
+  url       String
+  /// JSON map of width -> url for responsive srcset
+  srcset    Json?
+  alt       String?
+  width     Int?
+  height    Int?
+  position  Int      @default(0)
+  /// Original source reference (spreadsheet URL / uploaded filename)
+  sourceUrl String?
+  createdAt DateTime @default(now())
+
+  @@index([productId, position])
+}
+
+model ProductVariant {
+  id         String      @id @default(cuid())
+  productId  String
+  product    Product     @relation(fields: [productId], references: [id], onDelete: Cascade)
+  sku        String?     @unique
+  size       String?
+  color      String?
+  /// Optional per-variant price override (minor units)
+  price      Int?
+  position   Int         @default(0)
+  inventory  Inventory?
+  cartItems  CartItem[]
+  orderItems OrderItem[]
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+
+  @@index([productId])
+}
+
+model Inventory {
+  id                String              @id @default(cuid())
+  variantId         String              @unique
+  variant           ProductVariant      @relation(fields: [variantId], references: [id], onDelete: Cascade)
+  /// Units available to sell. Null = stock level unknown (not purchasable until set).
+  quantity          Int?
+  lowStockThreshold Int                 @default(3)
+  movements         InventoryMovement[]
+  updatedAt         DateTime            @updatedAt
+}
+
+model InventoryMovement {
+  id          String    @id @default(cuid())
+  inventoryId String
+  inventory   Inventory @relation(fields: [inventoryId], references: [id], onDelete: Cascade)
+  change      Int
+  reason      String
+  orderId     String?
+  createdAt   DateTime  @default(now())
+
+  @@index([inventoryId])
+}
+
+model Customer {
+  id               String    @id @default(cuid())
+  email            String    @unique
+  firstName        String?
+  lastName         String?
+  phone            String?
+  acceptsMarketing Boolean   @default(false)
+  addresses        Address[]
+  orders           Order[]
+  carts            Cart[]
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+}
+
+model Address {
+  id         String   @id @default(cuid())
+  customerId String?
+  customer   Customer? @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  firstName  String
+  lastName   String
+  line1      String
+  line2      String?
+  city       String
+  region     String?
+  postalCode String?
+  country    String
+  phone      String?
+  orders     Order[]
+  createdAt  DateTime @default(now())
+}
+
+model Cart {
+  id         String     @id @default(cuid())
+  /// Opaque token stored in an httpOnly cookie
+  token      String     @unique
+  customerId String?
+  customer   Customer?  @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  items      CartItem[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
+
+model CartItem {
+  id        String         @id @default(cuid())
+  cartId    String
+  cart      Cart           @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  variantId String
+  variant   ProductVariant @relation(fields: [variantId], references: [id], onDelete: Cascade)
+  quantity  Int
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+
+  @@unique([cartId, variantId])
+}
+
+model ShippingMethod {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  price       Int
+  active      Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  orders      Order[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Order {
+  id                String            @id @default(cuid())
+  number            Int               @unique @default(autoincrement())
+  /// Public reference used for payment + confirmation URLs
+  reference         String            @unique
+  customerId        String?
+  customer          Customer?         @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  email             String
+  phone             String?
+  shippingAddressId String?
+  shippingAddress   Address?          @relation(fields: [shippingAddressId], references: [id], onDelete: SetNull)
+  shippingMethodId  String?
+  shippingMethod    ShippingMethod?   @relation(fields: [shippingMethodId], references: [id], onDelete: SetNull)
+  shippingName      String?
+  status            OrderStatus       @default(PENDING_PAYMENT)
+  paymentStatus     PaymentStatus     @default(PENDING)
+  fulfillmentStatus FulfillmentStatus @default(UNFULFILLED)
+  currency          String
+  subtotal          Int
+  shippingTotal     Int               @default(0)
+  discountTotal     Int               @default(0)
+  total             Int
+  discountId        String?
+  discount          Discount?         @relation(fields: [discountId], references: [id], onDelete: SetNull)
+  discountCode      String?
+  carrier           String?
+  trackingNumber    String?
+  trackingUrl       String?
+  note              String?
+  /// Stock is reserved at checkout and released if payment is not completed by this time
+  reservedUntil     DateTime?
+  stockReleased     Boolean           @default(false)
+  items             OrderItem[]
+  payments          Payment[]
+  paidAt            DateTime?
+  cancelledAt       DateTime?
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+
+  @@index([status, createdAt])
+  @@index([customerId])
+}
+
+model OrderItem {
+  id           String          @id @default(cuid())
+  orderId      String
+  order        Order           @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId    String?
+  product      Product?        @relation(fields: [productId], references: [id], onDelete: SetNull)
+  variantId    String?
+  variant      ProductVariant? @relation(fields: [variantId], references: [id], onDelete: SetNull)
+  title        String
+  size         String?
+  color        String?
+  sku          String?
+  imageUrl     String?
+  unitPrice    Int
+  quantity     Int
+  lineTotal    Int
+
+  @@index([orderId])
+  @@index([productId])
+}
+
+model Payment {
+  id          String        @id @default(cuid())
+  orderId     String
+  order       Order         @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  provider    String
+  reference   String        @unique
+  amount      Int
+  currency    String
+  status      PaymentStatus @default(PENDING)
+  channel     String?
+  /// Provider verification payload (no card data is ever stored)
+  providerData Json?
+  verifiedAt  DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Discount {
+  id          String       @id @default(cuid())
+  code        String       @unique
+  type        DiscountType
+  /// Percentage (1-100) or fixed amount in minor units
+  value       Int
+  minSubtotal Int?
+  startsAt    DateTime?
+  endsAt      DateTime?
+  usageLimit  Int?
+  usedCount   Int          @default(0)
+  active      Boolean      @default(true)
+  orders      Order[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  phone     String?
+  source    String?
+  createdAt DateTime @default(now())
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  handled   Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Setting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model ImportRun {
+  id        String   @id @default(cuid())
+  source    String
+  report    Json
+  createdAt DateTime @default(now())
+}

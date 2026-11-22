@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * TYPOGRAPHY
+ * Primary: Helvetica Neue Condensed. It is used wherever the visitor's device has it
+ * (macOS / iOS ship Helvetica Neue Condensed Bold & Black). To serve it to every device,
+ * add your licensed web-font files to /public/fonts and un-comment the url() lines below.
+ * Fallbacks: Arial Narrow, then Oswald (open-source, self-hosted) — a close condensed
+ * substitute, not Helvetica Neue.
+ */
+@font-face {
+  font-family: 'Club Condensed';
+  font-weight: 400 700;
+  font-display: swap;
+  src: local('HelveticaNeue-CondensedBold'), local('Helvetica Neue Condensed Bold'), local('HelveticaNeueLTStd-BdCn'), local('Helvetica Neue LT Std 77 Bold Condensed');
+  /* , url('/fonts/HelveticaNeue-CondensedBold.woff2') format('woff2'); */
+}
+@font-face {
+  font-family: 'Club Condensed';
+  font-weight: 800 900;
+  font-display: swap;
+  src: local('HelveticaNeue-CondensedBlack'), local('Helvetica Neue Condensed Black'), local('HelveticaNeueLTStd-BlkCn'), local('Helvetica Neue LT Std 97 Black Condensed');
+  /* , url('/fonts/HelveticaNeue-CondensedBlack.woff2') format('woff2'); */
+}
+
+:root {
+  --font-cond: 'Club Condensed', 'Helvetica Neue Condensed', 'Arial Narrow', 'Oswald', 'Archivo Narrow', sans-serif;
+  --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-didot: 'GFS Didot', Didot, 'Bodoni 72', serif;
+  --header-h: 64px;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+body {
+  @apply bg-white font-body text-ink;
+  overflow-x: hidden;
+}
+::selection {
+  background: #e31b23;
+  color: #fff;
+}
+:focus-visible {
+  outline: 2px solid #e31b23;
+  outline-offset: 2px;
+}
+
+@layer components {
+  .t-ui {
+    @apply font-cond text-[13px] font-bold uppercase tracking-[0.04em];
+  }
+  .t-micro {
+    @apply font-cond text-[11px] font-bold uppercase tracking-[0.08em];
+  }
+  .t-display {
+    @apply font-cond font-black uppercase leading-[0.86] tracking-tightest;
+  }
+  .btn {
+    @apply t-ui inline-flex min-h-[48px] items-center justify-center gap-2 px-6 transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-ink {
+    @apply btn bg-ink text-white hover:bg-signal;
+  }
+  .btn-red {
+    @apply btn bg-signal text-white hover:bg-ink;
+  }
+  .btn-line {
+    @apply btn border border-ink bg-transparent text-ink hover:bg-ink hover:text-white;
+  }
+  .btn-line-light {
+    @apply btn border border-white bg-transparent text-white hover:bg-white hover:text-ink;
+  }
+  .field {
+    @apply block w-full border border-ink/25 bg-white px-3 py-3 font-body text-[15px] text-ink outline-none transition-colors placeholder:text-ink/40 focus:border-ink;
+  }
+  .field-label {
+    @apply t-micro mb-1.5 block text-ink/70;
+  }
+  .link-u {
+    @apply underline decoration-1 underline-offset-4 hover:text-signal;
+  }
+  .wrap {
+    @apply mx-auto w-full max-w-[1680px] px-4 sm:px-6 lg:px-10;
+  }
+}
+
+/* Film grain used on campaign blocks — "imperfection is part of the art" */
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

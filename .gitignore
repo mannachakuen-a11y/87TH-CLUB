@@ -1,22 +1,27 @@
-# --- secrets & local data: NEVER commit these ---
-server/.env
-*.env
+# secrets & local data
+.env
+.env.*
 !.env.example
-data/
-*.sqlite
-*.sqlite-shm
-*.sqlite-wal
+storage/
+import-reports/*.json
 
-# --- node / build ---
+# node / build
 node_modules/
+.next/
+out/
 dist/
 *.tsbuildinfo
+next-env.d.ts
 
-# --- editor / os ---
+# editor / os
 .DS_Store
 .vscode/
 .idea/
-
-# --- scratch ---
-.shots/
 *.log
+.shots/
+
+# legacy brand-os app data
+brand-os/data/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
